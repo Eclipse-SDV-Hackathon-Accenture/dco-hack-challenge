@@ -1,0 +1,31 @@
+query GET_SCENARIO {
+  scenarioReadByQuery(search: null, query: null, page: 0, size: 2, sort: null){
+    content {
+      id
+      name
+      description
+      type
+      status
+      createdBy
+      createdAt
+      lastModifiedBy
+      lastModifiedAt
+      file {
+        id
+        path
+        size
+        checksum
+        updatedBy
+        updatedOn
+      }
+    }
+    empty
+    first
+    last
+    page
+    size
+    pages
+    elements
+    total
+  }
+}

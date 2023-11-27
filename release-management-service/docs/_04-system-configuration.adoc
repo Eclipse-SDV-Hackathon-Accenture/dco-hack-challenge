@@ -1,0 +1,21 @@
+[[system-configuration]]
+== System Configuration
+
+
+=== Environment Variables
+
+|===
+|Name |Default |Description
+
+|INT_Environment 
+|localhost
+|Microservice : RM Services 
+
+|Dev_Environment 
+|Locahost
+|Microservice : RM Services 
+
+|Dev_Environment 
+|DCO Gatway -Aggrigator 
+|Microservice : DCO Gateway Services 
+|===

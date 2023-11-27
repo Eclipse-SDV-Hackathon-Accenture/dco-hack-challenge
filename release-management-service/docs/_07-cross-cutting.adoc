@@ -1,0 +1,53 @@
+[[cross-cutting]]
+== Cross Cutting
+
+ TBD - WIP 
+
+=== Metrics
+
+Application metrics can be pulled from `/management/metrics` path in a Prometheus compatible format.
+
+|===
+|Name |Description
+
+|Release_create
+|Sum of device creations.
+
+|Release_delete
+|Sum of Release deletions.
+
+|Metadata_create
+|or Use Predefined 0f creations.
+
+|Functions_Delete
+|Functions with respective Device,model, components version 
+
+|...
+|...
+
+|===
+
+=== Logging
+
+The application logs to standard output and if variable `SPRING_PROFILES_ACTIVE` contains `json` the format will be in JSON. All important audit messages can be found in the following table.
+
+
+|===
+|Log |Description
+
+|[AUDIT_DEVICE] device <SERIAL> has been <ACTION>
+|Audit actions performed on a device. Actions can be created, updated or deleted.
+
+|[AUDIT_VEHICLE] vehicle <vin> has been <ACTION>
+|Audit actions performed on a device. Actions can be created, updated or deleted.
+
+|...
+|...
+
+|===
+
+=== Versioning
+
+The application is using Semantic Versioning.
+
+All changes on the API level are backward compatible and the API follows the https://opensource.zalando.com/restful-api-guidelines/[Zalando RESTful API and Event Guidelines].

@@ -1,0 +1,59 @@
+version: "3.5"
+
+networks:
+  services:
+    name: ${DOCKER_NETWORK:-services}
+    driver: bridge
+
+services:
+  redis:
+    image: redis:6.0-alpine
+    hostname: redis
+    networks:
+    - services
+    ports:
+    - "6379:6379"
+    restart: unless-stopped
+  cassandra:
+    container_name: temporal-cassandra
+    hostname: temporal-cassandra
+    image: cassandra:3.11.3
+    networks:
+      - services
+    ports:
+      - "9042:9042"
+    restart: unless-stopped
+  temporal:
+    container_name: temporal
+    hostname: temporal
+    depends_on:
+      - cassandra
+    environment:
+      - CASSANDRA_SEEDS=cassandra
+      - DYNAMIC_CONFIG_FILE_PATH=/etc/temporal/config/temporal-config.yaml
+    image: temporalio/auto-setup:1.15.2
+    networks:
+      - services
+    ports:
+      - "7233:7233"
+    volumes:
+      - ./temporal-config.yaml:/etc/temporal/config/temporal-config.yaml
+    restart: unless-stopped
+  keycloak:
+    image: jboss/keycloak:16.1.1
+    hostname: keycloak
+    networks:
+    - services
+    ports:
+    - "8000:8000"
+    environment:
+      DB_VENDOR: h2
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /keycloak.json
+    volumes:
+    - ./keycloak.json:/keycloak.json
+    command: >-
+      -Djboss.http.port=8000
+      -Dkeycloak.profile.feature.upload_scripts=enabled
+    restart: unless-stopped

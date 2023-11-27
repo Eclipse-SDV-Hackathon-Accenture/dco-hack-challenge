@@ -1,0 +1,7 @@
+input UpdateApproverStatus{
+      releaseId: String
+      qualityGate: Int
+      name: String
+      isApproved: Boolean
+      status: [PENDING,INPROGRESS,PASSED]
+    }

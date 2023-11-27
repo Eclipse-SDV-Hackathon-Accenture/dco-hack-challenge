@@ -1,0 +1,13 @@
+input TrackInput{
+      name: String
+      duration: String
+      description: String
+      state: String
+      trackType: String
+      vehicles: [
+        {
+          vin: String
+          country: String
+        }
+      ]
+    }

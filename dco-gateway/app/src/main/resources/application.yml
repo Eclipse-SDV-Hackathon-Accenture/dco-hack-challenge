@@ -1,0 +1,108 @@
+app:
+  rest:
+    port: 8080
+  probes:
+    port: 8080
+  cors:
+    origins: "*"
+    headers: "*"
+  track:
+    rest:
+      url: ${TRACK_MANAGEMENT_URL:http://localhost:8081}
+  scenario:
+    rest:
+      url: ${SCENARIO_LIBRARY_URL:http://localhost:8082}
+  username: developer
+  password: password
+server:
+  port: ${app.rest.port}
+  forward-headers-strategy: FRAMEWORK
+spring:
+  servlet:
+    multipart:
+      max-request-size: -1
+      enabled: true
+  graphql:
+    path: /graphql
+    graphiql:
+      enabled: true
+    schema:
+      locations: classpath:graphql/**/
+      printer:
+        enabled: true
+    cors:
+      allowed-origins: ${app.cors.origins}
+      allowed-headers: ${app.cors.headers}
+management:
+  server:
+    port: ${app.probes.port}
+  info:
+    env:
+      enabled: true
+    build:
+      enabled: false
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /management
+      exposure:
+        include: info,health,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        descriptions: false
+        step: 30s
+info:
+  app:
+    name: ${app.name}
+    version: ${app.version}
+    profiles: ${spring.profiles.active}
+graphql:
+  servlet:
+    corsEnabled: true
+  playground:
+    mapping: /playground
+    endpoint: /graphql
+    enabled: true
+    headers:
+      Authorization: "Basic ZGV2ZWxvcGVyOnBhc3N3b3Jk" #Base64 encoded username and password(developer:password)
+    cdn:
+      enabled: true
+      version: 1.7.28
+    tabs:
+      - name: Get Scenarios
+        query: classpath:graphql-test/scenario_list.graphql
+      - name: Delete Scenario
+        query: classpath:graphql-test/scenario_delete.graphql
+      - name: Search Scenario
+        query: classpath:graphql-test/scenario_search.graphql
+      - name: Get Vehicles
+        query: classpath:graphql-test/vehicle_list.graphql
+      - name: Create Track
+        query: classpath:graphql-test/track_create.graphql
+      - name: Get Tracks
+        query: classpath:graphql-test/track_list.graphql
+      - name: Track By Id
+        query: classpath:graphql-test/track_id.graphql
+      - name: Delete Track
+        query: classpath:graphql-test/track_delete.graphql
+      - name: Search Track
+        query: classpath:graphql-test/track_search.graphql
+      - name: Launch Simulation
+        query: classpath:graphql-test/simulation_launch.graphql
+      - name: Get Simulations
+        query: classpath:graphql-test/simulation_list.graphql
+      - name: Get Hardware Module
+        query: classpath:graphql-test/track_hardware.graphql
+      - name: Vehicle by VIN
+        query: classpath:graphql-test/vehicle_vin.graphql
+

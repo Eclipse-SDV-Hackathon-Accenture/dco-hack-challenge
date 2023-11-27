@@ -1,0 +1,495 @@
+# TODO: adapt openapi specification itself and file name
+openapi: 3.0.1
+info:
+  title: openapi-track
+  version: latest
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Track
+    description: The endpoints for track interactions
+  - name: Vehicle
+    description: The endpoints for vehicle interactions
+paths:
+  /api/track:
+    post:
+      tags:
+      - Track
+      summary: Create a Track
+      description: Create a Track to database
+      operationId: createTrack
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TrackInput"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Track"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+    get:
+      tags:
+      - Track
+      summary: Read Track by query
+      description: Read Track by query and pageable from database
+      operationId: trackReadByQuery
+      parameters:
+      - name: query
+        in: query
+        required: false
+        example: brand:vw,brand!bmw,brand~benz
+        description: >-
+          Comma separated list of `{field}{operation}{value}` where operation can be 
+          `:` for equal, 
+          `!` for not equal and 
+          `~` for like operation
+        schema:
+          type: string
+      - name: search
+        in: query
+        required: false
+        description: Search value to query searchable fields agains
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        example: 0
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: query
+        required: false
+        example: 15
+        schema:
+          type: integer
+          format: int32
+      - name: sort
+        in: query
+        required: false
+        example:
+          - name:asc
+        schema:
+          type: array
+          items:
+            type: string
+            example: name:asc
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrackPage"
+        "404":
+          description: Not Found
+    delete:
+      tags:
+      - Track
+      summary: Delete a track by id
+      description: Delete a track by id from database
+      operationId: deleteTrackById
+      parameters:
+      - name: id
+        in: path
+        description: The track id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+  /api/track/{id}:
+    get:
+      tags:
+      - Track
+      summary: Find track by id
+      description: Find track by id
+      operationId: findTrackById
+      parameters:
+      - name: id
+        in: path
+        description: The track id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Track"
+        "404":
+          description: Not Found
+  /api/track/search:
+    get:
+      tags:
+      - Track
+      summary: Search for tracks with given '%' pattern. Returns paginated list
+      description: Search for tracks with given '%' pattern. Returns paginated list
+      operationId: searchTrackByPattern
+      parameters:
+      - name: trackPattern
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        example: 0
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: query
+        required: false
+        example: 15
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrackPage"
+        "404":
+          description: Not Found
+  /api/vehicle/{vin}:
+    get:
+      tags:
+      - Vehicle
+      summary: Find vehicle by vin
+      description: Find vehicle by vin
+      operationId: getVehicleByVin
+      parameters:
+        - name: vin
+          in: path
+          description: The vehicle vin
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VehicleResponse"
+        "404":
+          description: Not Found
+  /api/track/hardware:
+    get:
+      tags:
+        - Track
+      summary: Read Hardware Module
+      description: Read Hardware Module
+      operationId: getHardwareModule
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: String
+        "404":
+          description: Not Found
+  /api/vehicle:
+    get:
+      tags:
+      - Vehicle
+      summary: Read vehicle by query
+      description: Read Vehicle by query and pageable from device service
+      operationId: vehicleReadByQuery
+      parameters:
+      - name: query
+        in: query
+        required: false
+        description: >-
+          Comma separated list of `{field}{operation}{value}` where operation can be 
+          `:` for equal, 
+          `!` for not equal and 
+          `~` for like operation
+        schema:
+          type: string
+      - name: search
+        in: query
+        required: false
+        description: Search value to query searchable fields against
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        example: 0
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: query
+        required: false
+        example: 15
+        schema:
+          type: integer
+          format: int32
+      - name: sort
+        in: query
+        required: false
+        example:
+          - name:asc
+        schema:
+          type: array
+          items:
+            type: string
+            example: name:asc
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VehiclePage"
+        "404":
+          description: Not Found
+components:
+  schemas:
+    TrackPage:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Track'
+        empty:
+          type: boolean
+        first:
+          type: boolean
+        last:
+          type: boolean
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        pages:
+          type: integer
+          format: int32
+        elements:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int64
+      description: The Track page data
+    Track:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        trackType:
+          type: string
+        state:
+          type: string
+        duration:
+          type: string
+        description:
+          type: string
+        vehicles:
+          type: array
+          items:
+            $ref: "#/components/schemas/VehicleResponse"
+      description: Track data
+    VehicleResponse:
+      type: object
+      properties:
+        vin:
+          type: string
+        owner:
+          type: string
+        ecomDate:
+          type: string
+        country:
+          type: string
+        model:
+          type: string
+        brand:
+          type: string
+        region:
+          type: string
+        createdAt:
+          type: string
+        instantiatedAt:
+          type: string
+        updatedAt:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        actualBatteryCapacity:
+          type: string
+        fleets:
+          type: array
+          items:
+            $ref: "#/components/schemas/FleetResponse"
+        devices:
+          type: array
+          items:
+            $ref: "#/components/schemas/DeviceResponse"
+        services:
+          type: array
+          items:
+            $ref: "#/components/schemas/ServiceResponse"
+        tags:
+          type: array
+          items:
+            type: string
+      description: vehicle data
+    FleetResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+      description: Fleet data
+    ServiceResponse:
+      type: object
+      properties:
+        serviceId:
+          type: string
+        operation:
+          type: string
+        updatedAt:
+          type: string
+      description: Fleet data
+    DeviceResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+        createdAt:
+          type: string
+        gatewayId:
+          type: string
+        modelType:
+          type: string
+        dmProtocol:
+          type: string
+        modifiedAt:
+          type: string
+        dmProtocolVersion:
+          type: string
+        serialNumber:
+          type: string
+        components:
+          type: array
+          items:
+            $ref: "#/components/schemas/DeviceComponentResponse"
+      description: device data
+    DeviceComponentResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        version:
+          type: string
+        environmentType:
+          type: string
+      description: device component data
+    TrackInput:
+      type: object
+      properties:
+        name:
+          type: string
+        trackType:
+          type: string
+        state:
+          type: string
+        duration:
+          type: string
+        description:
+          type: string
+        vehicles:
+          type: array
+          items:
+            $ref: "#/components/schemas/Vehicle"
+      description: create track request data
+    Vehicle:
+      type: object
+      properties:
+        vin:
+          type: string
+        country:
+          type: string
+        actualBatteryCapacity:
+          type: string
+          format: number
+      description: vehicle data for track creation
+    VehiclePage:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/VehicleResponse'
+        empty:
+          type: boolean
+        first:
+          type: boolean
+        last:
+          type: boolean
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        pages:
+          type: integer
+          format: int32
+        elements:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int64
+      description: The Vehicle page data

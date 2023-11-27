@@ -1,0 +1,67 @@
+@startuml
+' !includeurl https://raw.githubusercontent.com/plantuml/plantuml/master/themes/puml-theme-bluegray.puml
+
+title Release Management- Activity Diagram
+start
+scale 0.6
+repeat
+  : Create New release;
+  : Enter Release ID and select Mandatory Metadata for New release;
+  note left
+    Select Metatrack, Country, Brand, Model and Date,
+    which are mandatory fields for required validation
+  end note
+backward:  Do release Not having Mandatory Data: show warning message;
+
+repeat while (Does New Release having all Valid release Inputs?) is(no) not (yes)
+:check the precondition for
+creating new Release using respective input Metadata;
+note right
+  precondition: Selection of valid Country, Brand , Model with select options,
+  Minimum one attribute selection
+end note
+if  (Add "New Functions" OR "ECU" ?) then(Select ECU )
+ ' if(which model is going to be release) then (attribute model)
+
+   : Select Add ECU;
+   : Select Devices;
+   note right
+         By Selecting Devices, Auto Populate Respective module
+         Module and related components, Version and Status
+         and last changed date.
+   end note
+   : Save/Create Release ;
+
+  'else (DC model)
+  ' : release failed;
+ ' endif
+  stop
+else (Select FUNCTIONS)
+: Select Function Name ;
+: Select Devices ;
+note right
+         By Selecting Devices, Auto Populate Respective module
+         and related components, Version and Status
+         and last changed date.
+end note
+: Add Another function;
+note right
+  validate the existing Functions and ECU Details
+end note
+if (Is NEW Functions validation success?) then(yes)
+: Validate earlier Functions and ECU;
+: Allow to Add another  Functions after Validation ;
+: Save Metatrack details and Save Release details;
+: create New Release Entry  in db;
+note left
+  Store Multiple Functions and ECU details
+  save Release details in db
+end note
+: push event notification of Release Creation;
+note left:  Notification to All Quality Gates Approvers
+else(no)
+: Show Validation Error "Release Fail";
+: show warning;
+endif
+stop
+@enduml

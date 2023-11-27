@@ -1,0 +1,154 @@
+version: "3.5"
+
+networks:
+  services:
+    name: services
+    driver: bridge
+
+services:
+  developer-console-ui:
+    image: developer-console-ui:1.0
+    container_name: developer-console-ui
+    build:
+      context: .
+      dockerfile: developer-console-ui/Dockerfile
+    ports:
+    - "3000:3000"
+    environment:
+      APP_DCO_GATEWAY_SERVICE_URL: http://localhost:8080
+      NEXT_PUBLIC_FILE: http://minio:9000/dco-scenario-library-service/scenario/fe7f4c94-c21a-4a4b-a3fc-c1b309b0f5f0/files/software_package.txt
+    restart: unless-stopped
+
+  dco-gateway:
+    image: dco-gateway:1.0
+    container_name: dco-gateway
+    build:
+      context: .
+      dockerfile: dco-gateway/Dockerfile.app
+    ports:
+    - "8080:8080"
+    environment:
+      APP_REST_PORT: 8080
+      TRACK_MANAGEMENT_URL: tracks-management-service:8081
+      SCENARIO_LIBRARY_URL: scenario-library-service:8082
+    restart: unless-stopped
+
+  release-management-service:
+    image: release-management-service:1.0
+    container_name: release-management-service
+    build:
+      context: .
+      dockerfile: release-management-service/Dockerfile.app
+    ports:
+      - "8083:8083"
+    environment:
+      APP_REST_PORT: 8083
+      APP_POSTGRES_HOST: postgres
+      APP_POSTGRES_PORT: 5432
+      APP_POSTGRES_DATABASE: postgres
+      APP_POSTGRES_USERNAME: postgres
+      APP_POSTGRES_PASSWORD: postgres
+      TRACK_MANAGEMENT_URL: http://host.docker.internal:8081
+    depends_on:
+      - postgres
+    restart: no
+
+  tracks-management-service:
+    image: tracks-management-service:1.0
+    container_name: tracks-management-service
+    build:
+      context: .
+      dockerfile: tracks-management-service/Dockerfile.app
+    ports:
+    - "8081:8081"
+    environment:
+      APP_REST_PORT: 8081
+      APP_POSTGRES_HOST: postgres
+      APP_POSTGRES_PORT: 5432
+      APP_POSTGRES_DATABASE: postgres
+      APP_POSTGRES_USERNAME: postgres
+      APP_POSTGRES_PASSWORD: postgres
+      SCENARIO-SERVICE_URL: scenario-library-service:8082
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - pgadmin
+
+  scenario-library-service:
+    image: scenario-library-service:1.0
+    container_name: scenario-library-service
+    build:
+      context: .
+      dockerfile: scenario-library-service/Dockerfile.app
+    ports:
+    - "8082:8082"
+    env_file:
+    - minio/minio_keys.env
+    environment:
+      APP_REST_PORT: 8082
+      APP_STORAGE_URL: http://minio:9000
+      APP_STORAGE_BUCKET: dco-scenario-library-service
+      APP_POSTGRES_HOST: postgres
+      APP_POSTGRES_PORT: 5432
+      APP_POSTGRES_DATABASE: postgres
+      APP_POSTGRES_USERNAME: postgres
+      APP_POSTGRES_PASSWORD: postgres
+      TRACK-SERVICE_URL: tracks-management-service:8081
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - pgadmin
+
+  minio:
+    image: minio:1.0
+    build:
+      context: .
+      dockerfile: minio/Dockerfile.minio
+    container_name: minio
+    hostname: minio
+    user: 1000:1000
+    ports:
+    - "9000:9000"
+    - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+      MINIO_SERVER_URL: http://localhost:9000
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:1.0
+    build:
+      context: .
+      dockerfile: postgres/Dockerfile.database
+    container_name: postgres
+    ports:
+    - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@default.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+  sumo:
+    image: ubuntu:latest
+    container_name: sumo
+    ports:
+      - "8086:8086"
+    environment:
+      - SUMO_HOME="/sumo"
+      - PATH="/sumo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    command: ["bash", "/home/sumo_install_script.sh" ]
+    volumes:
+      - ./sumo:/home

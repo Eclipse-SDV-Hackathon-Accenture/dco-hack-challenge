@@ -1,0 +1,21 @@
+[[general]]
+== General
+For the automotive industry, the transformation arena has shifted to software and software-defined platforms in recent years, and this is expected to continue as differentiation and price competitiveness remain the primary focus. Recent automotive innovations, such as infotainment, sensor-based detection, and driving dynamics, rely on software precision, quality, scalability, and integration rather than mechanical ingenuity. As the transition from mechanical to electro-mechanical to essentially software-driven becomes more prominent, more frequent updates over the air are required, such as 1. Software OTA, 2. Configuration OTA, 3. Firmware OTA, and 4. Application OTA.
+
+Release Management is a key component/microservice of the Developer Console. The goal of DCO-Release Management is to to test, approve and release vehicle software updates for the after sales vehicles in shorter cycles. 
+
+image::./images/DCO_Release_Management_ProcessNew_.png[]
+
+=== Constraints
+
+ Key Features of Release Managment Service:
+
+** Integration with Device and Campaign Management and Packaging Service and Task Managment (Backend)
+** Providing API's to support the CRUD functions for Software Components and Release Creations via UI
+** Persistence of the model object in the database
+** Create new Components and New Releaes in a for Test Release before production Campaign 
+** Creating a Releases based on the defined Quality Gates having 'n' Approver and selected Tracks 
+** Integration with Task Management Service (Forworkflow Exexcution) for Quality Gates (Having Tracks and Approvers) and update status of S/w Components in PS- Software Repository. 
+** Changing the S/W Components status from "Test" to "Ready" by the action triggered once all Quality Gates are approved 
+
+

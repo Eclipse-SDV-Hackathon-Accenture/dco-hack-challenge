@@ -1,0 +1,60 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.button-green:hover {
+  background-color: rgba(0, 221, 102, 0.3) !important;
+}
+
+.button-blue:hover {
+  background-color: rgba(138, 199, 230, 0.8)!important;
+}
+
+.button-magenta:hover {
+  background-color: rgba(226, 0, 116, 0.2)!important;
+}
+
+
+/* @keyframes fa-spinner {
+  to {transform: rotate(360deg) !important;}
+}
+ 
+.fa-spinner:before {
+  content: '' !important;
+  box-sizing: border-box !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-top: -10px !important;
+  margin-left: -10px !important;
+  border-radius: 50% !important;
+  border: 2px solid #ccc !important;
+  border-top-color: #e20074!important;
+  animation: spinner .4s linear infinite !important;
+} */
+
+/* // grid table css */
+.agGrid .ag-cell-wrap-text {
+  white-space: nowrap !important;
+}
+.grid-table .ag-cell {
+  align-items: baseline !important;
+  align-content: center !important;
+  height: auto !important;
+
+}

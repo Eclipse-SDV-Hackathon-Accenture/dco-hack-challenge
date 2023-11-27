@@ -1,0 +1,17 @@
+[[glossary]]
+== Glossary
+
+Below there are term definitions explained.
+
+|===
+|Term |Definition
+
+|CPU
+|Central processing unit
+
+|PK
+|Primary Key
+
+|RAM
+|Random-access memory
+|===

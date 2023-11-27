@@ -1,0 +1,109 @@
+stages:
+- init
+- push-to-eclipse-repo
+- pull-from-eclipse-repo
+
+variables:
+  APP_NAME: developer-console
+  APP_VERSION: 1.0.0
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: /certs
+  FF_GITLAB_REGISTRY_HELPER_IMAGE: 1
+
+image: docker:20.10-git
+
+services:
+- name: docker:20.10-dind
+  alias: docker
+  command:
+  - --tls=false
+  - --tlsverify=false
+  - --registry-mirror=http://docker.local
+
+init:
+  only:
+    - main
+  stage: init
+  services: []
+  variables:
+    GIT_DEPTH: 0
+    GIT_STRATEGY: clone
+  script:
+  - |-
+    [[ "${CI_COMMIT_TAG}" ]] && {
+      export CI_VERSION="${CI_COMMIT_TAG}"
+    }
+    [[ "${CI_COMMIT_TAG}" ]] || {
+      CI_LATEST_REV=$(git rev-list --tags --max-count=1)
+      CI_LATEST_TAG=$(git describe --tags "${CI_LATEST_REV}" 2> /dev/null || echo 0.0.0)
+      export CI_VERSION="${CI_LATEST_TAG}-rc-${CI_COMMIT_SHORT_SHA}"
+    }
+    {
+      echo "APP_TAG=${CI_COMMIT_TAG}"
+      echo "APP_BRANCH=${CI_COMMIT_REF_NAME}"
+      echo "APP_VERSION=${CI_VERSION}"
+    } >> .env && cat .env
+  artifacts:
+    paths:
+    - .env
+    reports:
+      dotenv:
+      - .env
+
+push-to-eclipse-repo:
+  when: manual
+  only:
+    - main
+  stage: push-to-eclipse-repo
+  needs: [init]
+  dependencies: [init]
+  image: conmob/docker:20.10-docker-compose-1.29.2
+  variables:
+    GIT_DEPTH: 0
+    GIT_STRATEGY: clone
+  before_script:
+  - source ./.bashrc
+  script:
+    - echo "Sync stage to push code from private repository to eclipse repository"
+    - cd ..
+    - mkdir tempdco
+    - cd tempdco
+    - git clone https://${ECLIPSE_TOKEN_NAME}:${ECLIPSE_TOKEN_VALUE}@${ECLIPSE_REPO_PATH}${ECLIPSE_REPO_NAME}.git
+    - cd ${ECLIPSE_REPO_NAME}   
+    - git checkout -b feat/sync-private-repo
+    - rm -rf *
+    - cp -R ../../${PRIVATE_REPO_NAME}/* .
+    - git config user.email ${GIT_USER_EMAIL}
+    - git config user.name ${GIT_USER_NAME}
+    - git add .
+    - git commit -m "${APP_VERSION}-changes from private repo"
+    - git push https://${ECLIPSE_TOKEN_NAME}:${ECLIPSE_TOKEN_VALUE}@${ECLIPSE_REPO_PATH}${ECLIPSE_REPO_NAME}.git feat/sync-private-repo
+
+pull-from-eclipse-repo:
+  when: manual
+  only:
+    - main  
+  stage: pull-from-eclipse-repo
+  needs: [init]
+  dependencies: [init]
+  image: conmob/docker:20.10-docker-compose-1.29.2
+  variables:
+    GIT_DEPTH: 0
+    GIT_STRATEGY: clone
+  before_script:
+  - source ./.bashrc
+  script:
+    - echo "Sync stage to pull code from publish repository to private repository"
+    - cd ..
+    - mkdir tempdco
+    - cd tempdco    
+    - git clone https://${ECLIPSE_TOKEN_NAME}:${ECLIPSE_TOKEN_VALUE}@${ECLIPSE_REPO_PATH}${ECLIPSE_REPO_NAME}.git
+    - cd ../../${PRIVATE_REPO_NAME}
+    - git checkout -b feat/sync-eclipse-repo
+    - rm -rf *
+    - cp -R ../tempdco/${ECLIPSE_REPO_NAME}/* .
+    - git config user.email ${GIT_USER_EMAIL}
+    - git config user.name ${GIT_USER_NAME}
+    - git add .
+    - git commit -m "${APP_VERSION}-changes from eclipse repo"
+    - git push https://${PRIVATE_TOKEN_NAME}:${PRIVATE_TOKEN_VALUE}@${PRIVATE_REPO_PATH}${PRIVATE_REPO_NAME}.git feat/sync-eclipse-repo  

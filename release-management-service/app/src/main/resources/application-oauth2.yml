@@ -1,0 +1,54 @@
+app:
+  oauth2:
+    login:
+      enabled: true
+    authorities:
+      prefix: ROLE_
+      claims:
+      - roles
+      mappings:
+      - patterns:
+        - admin
+        - developer
+        - application
+        authorities:
+        - RELEASE_READ
+        - RELEASE_WRITE
+        - RELEASE_DELETE
+      - patterns:
+        - viewer
+        authorities:
+        - RELEASE_READ
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.oauth2.issuer}
+      client:
+        provider:
+          oauth2:
+            issuer-uri: ${app.oauth2.issuer}
+        registration:
+          user:
+            provider: oauth2
+            client-id: ${app.oauth2.client.id}
+            client-secret: ${app.oauth2.client.secret}
+            authorization-grant-type: authorization_code
+            scope:
+            - openid
+            - profile
+            - email
+          application:
+            provider: oauth2
+            client-id: ${app.oauth2.client.id}
+            client-secret: ${app.oauth2.client.secret}
+            authorization-grant-type: client_credentials
+            scope:
+            - openid
+springdoc:
+  swagger-ui:
+    enabled: ${app.oauth2.login.enabled}
+    oauth:
+      client-id: ${app.oauth2.client.id}
+      client-secret: ${app.oauth2.client.secret}

@@ -1,0 +1,35 @@
+// TODO: adapt name and author
+= Release-management-service
+Julien Hagestedt <julien.hagestedt@t-systems.com>
+// metadata
+:description: Documentation of Release-management-service.
+:keywords: architecture, microservice, documentation, Release-management-service
+//settings
+:toc: left
+:icons: font
+:sectnums:
+:sectanchors:
+:data-uri:
+
+ifdef::automation[]
+[IMPORTANT]
+====
+This content was published by automation. Do not edit here but in source code.
+====
+endif::automation[]
+
+include::./_01-general.adoc[]
+
+include::./_02-architecture.adoc[]
+
+include::./_03-system-requirements.adoc[]
+
+include::./_04-system-configuration.adoc[]
+
+include::./_05-system-permissions.adoc[]
+
+include::./_06-system-interfaces.adoc[]
+
+include::./_07-cross-cutting.adoc[]
+
+include::./_99-glossary.adoc[]

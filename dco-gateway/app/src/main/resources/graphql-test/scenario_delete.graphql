@@ -1,0 +1,3 @@
+mutation DELETE_SCENARIO {
+  deleteScenarioById(id: "9711f69b-8210-42d0-a6e6-5397d4bd5d99")
+}

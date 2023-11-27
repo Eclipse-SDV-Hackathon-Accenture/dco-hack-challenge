@@ -1,0 +1,11 @@
+spring:
+  config:
+    import: vault://
+  cloud:
+    vault:
+      enabled: true
+      uri: ${vault.addr}
+      token: ${vault.token}
+      kv:
+        enabled: true
+        backend: ${vault.mount}

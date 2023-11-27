@@ -1,0 +1,464 @@
+# TODO: adapt openapi specification itself and file name
+openapi: 3.0.1
+info:
+  title: openapi-scenario
+  version: latest
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Scenario
+    description: The endpoints for scenario interactions
+  - name: Simulation
+    description: The endpoints for simulation interactions
+paths:
+  /api/scenario:
+    post:
+      tags:
+        - Scenario
+      summary: Create a Scenario
+      description: Create a Scenario to database
+      operationId: createScenario
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                scenario:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Scenario"
+        "400":
+          description: Bad Request
+    get:
+      tags:
+        - Scenario
+      summary: Read Scenario by query
+      description: Read Scenario by query and pageable from database
+      operationId: scenarioReadByQuery
+      parameters:
+        - name: query
+          in: query
+          required: false
+          description: >-
+            Comma separated list of `{field}{operation}{value}` where operation can be 
+            `:` for equal, 
+            `!` for not equal and 
+            `~` for like operation
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          description: Search value to query searchable fields against
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          required: false
+          example: 15
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          example:
+            - name:asc
+          schema:
+            type: array
+            items:
+              type: string
+              example: name:asc
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScenarioPage"
+        "400":
+          description: Bad Request
+    put:
+      tags:
+        - Scenario
+      summary: Update Scenario by id
+      description: Update Scenario by id to database
+      operationId: scenarioUpdateById
+      parameters:
+        - name: id
+          in: query
+          description: The scenario id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                scenario:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Scenario"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+    delete:
+      tags:
+        - Scenario
+      summary: Delete Scenario by id
+      description: Delete Scenario by id from database
+      operationId: deleteScenarioById
+      parameters:
+        - name: id
+          in: query
+          description: The scenario id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+  /api/scenario/search:
+    get:
+      tags:
+        - Scenario
+      summary: Search for scenario with given '%' pattern. Returns paginated list
+      description: Search for scenario with given '%' pattern. Returns paginated list
+      operationId: searchScenarioByPattern
+      parameters:
+        - name: scenarioPattern
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          required: false
+          example: 15
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScenarioPage"
+        "404":
+          description: Not Found
+  /api/simulation:
+    post:
+      tags:
+        - Simulation
+      summary: Launch Simulation
+      description: Launch a Simulation
+      operationId: launchSimulation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SimulationInput"
+        required: true
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+    get:
+      tags:
+        - Simulation
+      summary: Read Simulation by query
+      description: Read Simulation by query and pageable from database
+      operationId: simulationReadByQuery
+      parameters:
+        - name: query
+          in: query
+          required: false
+          description: >-
+            Comma separated list of `{field}{operation}{value}` where operation can be 
+            `:` for equal, 
+            `!` for not equal and 
+            `~` for like operation
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          description: Search value to query searchable fields against
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          required: false
+          example: 15
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          example:
+            - name:asc
+          schema:
+            type: array
+            items:
+              type: string
+              example: name:asc
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulationPage"
+        "400":
+          description: Bad Request
+components:
+  schemas:
+    ScenarioInput:
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+          enum: [ CREATED, ARCHIVED ]
+        type:
+          type: string
+          enum: [ MQTT, CAN ]
+        description:
+          type: string
+        createdBy:
+          type: string
+        lastModifiedBy:
+          type: string
+      description: The scenario data
+    FileData:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        path:
+          type: string
+        fileKey:
+          type: string
+        size:
+          type: string
+        checksum:
+          type: string
+        updatedBy:
+          type: string
+        updatedOn:
+          type: string
+          format: date-time
+      description: The scenario data
+    ScenarioPage:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scenario'
+        empty:
+          type: boolean
+        first:
+          type: boolean
+        last:
+          type: boolean
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        pages:
+          type: integer
+          format: int32
+        elements:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int64
+      description: The Scenario page data
+    Scenario:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        lastModifiedAt:
+          type: string
+          format: date-time
+        lastModifiedBy:
+          type: string
+        file:
+          $ref: "#/components/schemas/FileData"
+      description: The scenario data
+    SimulationInput:
+      type: object
+      properties:
+        name:
+          type: string
+        environment:
+          type: string
+        platform:
+          type: string
+        scenarioType:
+          type: string
+        hardware:
+          type: string
+        description:
+          type: string
+        tracks:
+          type: array
+          items:
+            type: string
+            format: uuid
+        scenarios:
+          type: array
+          items:
+            type: string
+            format: uuid
+        createdBy:
+          type: string
+      description: launch simulation input
+    SimulationPage:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Simulation'
+        empty:
+          type: boolean
+        first:
+          type: boolean
+        last:
+          type: boolean
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        pages:
+          type: integer
+          format: int32
+        elements:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int64
+      description: The Scenario page data
+    Simulation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        status:
+          type: string
+        platform:
+          type: string
+        hardware:
+          type: string
+        environment:
+          type: string
+        scenarioType:
+          type: enum
+          $ref: "#/components/schemas/ScenarioType"
+        noOfScenarios:
+          type: integer
+          format: int32
+        noOfVehicle:
+          type: integer
+          format: int32
+        brands:
+          type: array
+          items:
+            type: string
+        createdBy:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        description:
+          type: string
+      description: Simulation Data
+    ScenarioType:
+      type: string
+      enum:
+        - Over-The-Air Service
+        - Vehicle Management
+        - Data Collection
+        - Remote Control

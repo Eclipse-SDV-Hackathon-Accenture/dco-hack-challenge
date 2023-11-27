@@ -1,0 +1,22 @@
+query LIST_TRACK {
+ trackReadByQuery(search: null, query: null, page: 0, size: 2, sort: null){
+  content{
+    id
+  	name
+  	state
+  	trackType
+  	vehicles {
+    	vin
+    	country
+  	}
+  }
+  empty
+  first
+  last
+  page
+  size
+  pages
+  elements
+  total
+ }
+}

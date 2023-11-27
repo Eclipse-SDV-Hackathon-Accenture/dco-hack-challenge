@@ -1,0 +1,61 @@
+[[architecture]]
+== Architecture
+
+=== Architecture Decisions
+
+[options="header",cols="2,3"]
+|===
+|Architecture Decision |Explanations and background
+
+| Implementation in Java and Spring boot Microservice
+| The Developer Console is a complex system in the microservice architecture. Release Management Service is one microservice in it.
+The programming language is java. A popular framework for java microservice spring boot is used in the implementation.
+Development starts with Java SE11. The microservice is also expected to run on newer Java versions as they become available and stable or as per ADR Guidelines.
+
+| Containerization with docker
+| DCO-Release Management application runs in a docker container to have better portability, performance and scalability
+
+| AWS cloud based infrastructure
+| DCO-Release Management application is deployed on the AWS cloud in EKS (Amazon Elastic Kubernetes Service) to make it more scalable and adaptable and also have better security and reliability. With the kubernetes infrastructure, we can also easily migrate the application into other public cloud as well as a private cloud to fit the requirement of different OEMs.
+
+| CI/CD
+| Continuous Integration (CI) allows us to continuously integrate code into a single shared and easy to access repository. Continuous Delivery (CD) allows us to take the code stored in the repository and continuously deliver it to production. CI/CD creates a fast and effective process of getting our product to market
+
+| GraphQL
+| We use GraphQL query language for our APIs. With GraphQL, developers can fetch only what is required. Nothing less, nothing more. This solves the issues that arise due to over-fetching and under-fetching. GraphQL supports requests over HTTP as well as requests over WebSocket for subscription.
+|===
+
+=== Component Model
+
+The primary task of release management is to create releases or an update bundle of software component versions that all perform the same function. For release preparation and execution, release management will use a variety of services, such as:
+
+• Device Management service will provide vehicle related data for releases like country, brand and model via REST API
+• PS-Packaging services will provide software and hardware component data via REST API
+• Track Management service from DCO will provide the test tracks, the meta track and functions via REST API
+• While defining a new release, the user needs to select  a Meta track which is  a set of Quality Gates(including approvers and tracks) These meta  track are managed by Task Management. For the creation the user uses the Task Management workflow designer service. The execution of the meta track is requested from campaign management service from DCM 
+• Metadata of Release management store in postgre SQL database. 
+
+[plantuml,file=""]
+[plantuml, target=component_diagram, format=png]
+----
+include::./plantuml/component_diagram.puml[]
+----
+
+=== Process: Release Managment Flow
+
+[plantuml,file=""]
+[plantuml, target=Create_release_flow, format=png]
+----
+include::./plantuml/Create_release_flow.puml[]
+----
+
+=== Class Diagram 
+
+Release Managment service accepts the partial data from Track Management service for creating releases and to perform release Managment releated operatiosn
+
+[plantuml,file=""]
+[plantuml, target=class_diagram, format=png]
+----
+include::./plantuml/class_diagram.puml[]
+----
+

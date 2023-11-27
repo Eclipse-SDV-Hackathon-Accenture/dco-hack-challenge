@@ -1,0 +1,20 @@
+[[glossary]]
+== Glossary
+
+Below there are term definitions explained.
+
+|===
+|Term |Definition
+
+|CPU
+|Central processing unit
+
+|PK
+|Primary Key
+
+|RM
+|Release Management 
+
+|QA
+|Quality Gates and Apprrovers  
+|===

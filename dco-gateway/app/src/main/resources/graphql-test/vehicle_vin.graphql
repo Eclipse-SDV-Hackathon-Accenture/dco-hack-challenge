@@ -1,0 +1,8 @@
+query VEHICLE_BY_VIN{
+  getVehicleByVin(vin: "BBTEST00000000340"){
+    vin
+    model
+    brand
+    actualBatteryCapacity
+  }
+}

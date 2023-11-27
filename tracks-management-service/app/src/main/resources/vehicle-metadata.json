@@ -1,0 +1,555 @@
+{
+  "content": [
+    {
+      "vin": "BBTEST00000000340",
+      "ecomDate": "2022-12-15T21:30:32.105Z",
+      "country": "FR",
+      "model": "A-Class",
+      "brand": "Mercedes-Benz",
+      "actualBatteryCapacity": "500",
+      "createdAt": "2022-12-15T21:30:46.443421",
+      "updatedAt": "2023-02-22T00:58:01.734361",
+      "status": "DRAFT",
+      "type": "Virtual Vehicle",
+      "fleets": [
+        {
+          "id": "256",
+          "name": "fleet bb",
+          "type": "STATIC"
+        },
+        {
+          "id": "31",
+          "name": "411",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "84c32703-982a-4efd-920b-b80977073b33",
+          "type": "TCU",
+          "status": "ACTIVE",
+          "createdAt": "2022-12-15T21:30:46.443445",
+          "gatewayId": "",
+          "modelType": "HIGH_EU",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-20T14:09:25.437637",
+          "dmProtocolVersion": "1.0.2",
+          "components": [
+            {
+              "id": "747243cc",
+              "name": "Component",
+              "status": "ACTIVE",
+              "version": "24edc320",
+              "environmentType": "Software"
+            }
+          ]
+        },
+        {
+          "id": "36e5322b-92ce-4fb9-ac25-56d2ed0c4b53",
+          "type": "IVI",
+          "status": "DRAFT",
+          "createdAt": "2022-12-20T14:09:12.829388",
+          "gatewayId": "",
+          "modelType": "HIGH_EU",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-20T14:09:25.48871",
+          "dmProtocolVersion": "1.0.2",
+          "components": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "vin": "BBTEST00000000341",
+      "ecomDate": "2022-12-16T12:06:09.865Z",
+      "country": "FR",
+      "model": "A-Class",
+      "brand": "Mercedes-Benz",
+      "actualBatteryCapacity": "700",
+      "createdAt": "2022-12-16T12:06:28.208036",
+      "updatedAt": "2023-02-22T00:58:01.733471",
+      "status": "READY",
+      "type": "Virtual Vehicle",
+      "fleets": [
+        {
+          "id": "256",
+          "name": "fleet bb",
+          "type": "STATIC"
+        },
+        {
+          "id": "31",
+          "name": "411",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "18d4285b-31c5-4e35-8b1c-ed931b3baed3",
+          "type": "TCU",
+          "status": "ACTIVE",
+          "createdAt": "2022-12-16T12:06:28.209091",
+          "gatewayId": "",
+          "modelType": "HIGH_EU",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-30T16:44:49.170935",
+          "dmProtocolVersion": "1.0.2",
+          "components": [
+            {
+              "id": "BB341",
+              "name": "Component",
+              "status": "ACTIVE",
+              "version": "24edc320",
+              "environmentType": "Software"
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "vin": "VINTESTTBB0003014",
+      "country": "GR",
+      "model": "A1",
+      "brand": "Audi",
+      "actualBatteryCapacity": "1000",
+      "createdAt": "2022-12-19T09:41:52.37476",
+      "updatedAt": "2023-02-22T00:58:01.734666",
+      "status": "DRAFT",
+      "type": "Test Bench",
+      "fleets": [
+        {
+          "id": "368",
+          "name": "newbb",
+          "type": "STATIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "TESTDEVICE3014",
+          "type": "TCU",
+          "status": "READY",
+          "createdAt": "2022-12-19T09:41:52.374781",
+          "gatewayId": "",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-19T09:41:53.877784",
+          "dmProtocolVersion": "1.0.2",
+          "components": [
+            {
+              "id": "1",
+              "name": "Software",
+              "status": "ACTIVE",
+              "version": "1681190070",
+              "environmentType": "Software"
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "vin": "VINTESTTBB0003013",
+      "country": "LU",
+      "model": "Puma",
+      "brand": "Ford",
+      "actualBatteryCapacity": "500",
+      "createdAt": "2022-12-19T09:41:56.025012",
+      "updatedAt": "2023-02-22T00:58:01.729348",
+      "status": "DRAFT",
+      "type": "Test Bench",
+      "fleets": [
+        {
+          "id": "368",
+          "name": "newbb",
+          "type": "STATIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "TESTDEVICE3013",
+          "type": "TCU",
+          "status": "READY",
+          "createdAt": "2022-12-19T09:41:56.025058",
+          "gatewayId": "",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-19T09:41:56.025058",
+          "dmProtocolVersion": "1.0.2",
+          "components": [
+            {
+              "id": "1",
+              "name": "Software",
+              "status": "ACTIVE",
+              "version": "1779121250",
+              "environmentType": "Software"
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "vin": "VINTESTTBB0002940",
+      "country": "PL",
+      "model": "Polo",
+      "brand": "VW",
+      "actualBatteryCapacity": "800",
+      "createdAt": "2022-12-19T09:42:03.857758",
+      "updatedAt": "2023-02-22T00:58:01.739486",
+      "status": "DRAFT",
+      "type": "Real Vehicle",
+      "fleets": [
+        {
+          "id": "6197",
+          "name": "cgdszy",
+          "type": "STATIC"
+        },
+        {
+          "id": "4303",
+          "name": "static",
+          "type": "STATIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "TESTDEVICE2940",
+          "type": "IVI",
+          "status": "DRAFT",
+          "createdAt": "2022-12-19T09:42:03.857775",
+          "gatewayId": "",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-19T09:42:03.857775",
+          "dmProtocolVersion": "1.0.2",
+          "components": [
+            {
+              "id": "1",
+              "name": "Software",
+              "status": "ACTIVE",
+              "version": "1680479438",
+              "environmentType": "Software"
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "vin": "VINTESTTBB0002939",
+      "country": "GR",
+      "model": "Almera",
+      "brand": "Nissan",
+      "actualBatteryCapacity": "1100",
+      "createdAt": "2022-12-19T09:42:11.52793",
+      "updatedAt": "2023-02-22T00:58:01.729547",
+      "status": "DRAFT",
+      "type": "Real Vehicle",
+      "fleets": [
+        {
+          "id": "32",
+          "name": "DM4382-Test-Dynamic-fleet_5",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [],
+      "services": []
+    },
+    {
+      "vin": "TESTVIN0000003337",
+      "ecomDate": "2022-01-01T00:00:00.000Z",
+      "country": "PL",
+      "model": "Insignia",
+      "brand": "Opel",
+      "actualBatteryCapacity": "500",
+      "createdAt": "2022-12-19T10:59:57.841533",
+      "updatedAt": "2023-02-22T00:58:01.73495",
+      "status": "READY",
+      "type": "Virtual Vehicle",
+      "fleets": [
+        {
+          "id": "368",
+          "name": "newbb",
+          "type": "STATIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "41e5242c-aa6a-4def-ae1a-961d615b746f",
+          "type": "TCU",
+          "status": "READY",
+          "createdAt": "2022-12-19T10:59:57.841549",
+          "gatewayId": "",
+          "modelType": "MID_EU",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-19T10:59:57.841549",
+          "dmProtocolVersion": "3.0.1",
+          "components": [
+            {
+              "id": "dabb6d9b",
+              "name": "ComponentTest",
+              "status": "ACTIVE",
+              "version": "3.0.1",
+              "environmentType": "Software"
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "vin": "TESTVIN0000003340",
+      "ecomDate": "2022-01-01T00:00:00.000Z",
+      "country": "PL",
+      "model": "Insignia",
+      "brand": "Opel",
+      "actualBatteryCapacity": "200",
+      "region": "EU",
+      "createdAt": "2022-12-19T11:00:05.613406",
+      "updatedAt": "2023-02-22T00:58:01.73921",
+      "status": "DRAFT",
+      "type": "Real Vehicle",
+      "fleets": [
+        {
+          "id": "368",
+          "name": "newbb",
+          "type": "STATIC"
+        },
+        {
+          "id": "4053",
+          "name": "Test",
+          "type": "STATIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "TESTDEVICE3340",
+          "type": "TCU",
+          "status": "DRAFT",
+          "createdAt": "2022-12-19T11:00:05.613424",
+          "modelType": "MID_EU",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-19T11:00:12.213828",
+          "dmProtocolVersion": "3.0.3",
+          "serialNumber": "TESTDEVICE3340",
+          "components": [
+            {
+              "id": "1",
+              "name": "ComponentTest",
+              "status": "ACTIVE",
+              "version": "3.0.5",
+              "environmentType": "Software"
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "vin": "TESTVIN0000003408",
+      "ecomDate": "2021-04-01",
+      "country": "PL",
+      "model": "Life",
+      "brand": "eGO",
+      "actualBatteryCapacity": "600",
+      "region": "EU",
+      "createdAt": "2022-12-19T11:00:15.114168",
+      "updatedAt": "2023-02-22T00:58:01.738612",
+      "status": "DRAFT",
+      "type": "Test Bench",
+      "fleets": [
+        {
+          "id": "368",
+          "name": "newbb",
+          "type": "STATIC"
+        },
+        {
+          "id": "4053",
+          "name": "Test",
+          "type": "STATIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        }
+      ],
+      "devices": [],
+      "services": []
+    },
+    {
+      "vin": "VINPM128167865193",
+      "ecomDate": "2022-07-01",
+      "country": "FR",
+      "model": "5 Series",
+      "brand": "BMW",
+      "actualBatteryCapacity": "900",
+      "createdAt": "2022-12-19T13:17:01.946904",
+      "updatedAt": "2023-02-23T00:53:00.110147",
+      "status": "READY",
+      "type": "Test Bench",
+      "fleets": [
+        {
+          "id": "31",
+          "name": "411",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "1867",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "2478",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "3459",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "770",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "1042",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "3829",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "6295",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "6724",
+          "name": "Test",
+          "type": "STATIC"
+        },
+        {
+          "id": "2082",
+          "name": "Fleet_DM5172",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "6905",
+          "name": "Updated name",
+          "type": "DYNAMIC"
+        },
+        {
+          "id": "6911",
+          "name": "Fleet_DM4624",
+          "type": "DYNAMIC"
+        }
+      ],
+      "devices": [
+        {
+          "id": "DEVICEID665457956",
+          "type": "TCU",
+          "status": "READY",
+          "createdAt": "2022-12-19T13:17:01.946954",
+          "modelType": "OTA_INTEGRATION_TEST",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-19T13:17:01.946954",
+          "dmProtocolVersion": "1.01",
+          "components": [
+            {
+              "id": "1",
+              "name": "COMPONENT",
+              "status": "ACTIVE",
+              "version": "9824902229",
+              "environmentType": "Software"
+            },
+            {
+              "id": "2",
+              "name": "COMPONENT",
+              "status": "ACTIVE",
+              "version": "9824902229",
+              "environmentType": "Software"
+            }
+          ]
+        },
+        {
+          "id": "DEVICEID773051816",
+          "type": "IVI",
+          "status": "READY",
+          "createdAt": "2022-12-19T13:17:01.946972",
+          "gatewayId": "DEVICEID665457956",
+          "modelType": "OTA_INTEGRATION_TEST",
+          "dmProtocol": "LWM2M",
+          "modifiedAt": "2022-12-19T13:17:01.946972",
+          "dmProtocolVersion": "1.01",
+          "components": [
+            {
+              "id": "3",
+              "name": "COMPONENT",
+              "status": "ACTIVE",
+              "version": "9824902229",
+              "environmentType": "Software"
+            },
+            {
+              "id": "4",
+              "name": "COMPONENT",
+              "status": "ACTIVE",
+              "version": "9824902229",
+              "environmentType": "Software"
+            }
+          ]
+        }
+      ],
+      "services": []
+    }
+  ],
+  "empty": false,
+  "first": true,
+  "last": true,
+  "page": 0,
+  "size": 10,
+  "pages": 1,
+  "elements": 10,
+  "total": 10
+}

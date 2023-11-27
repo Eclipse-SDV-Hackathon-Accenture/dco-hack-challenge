@@ -1,0 +1,39 @@
+[[cross-cutting]]
+== Cross Cutting
+
+Proin venenatis fermentum velit, in dictum mi maximus ac. Nam augue lectus, finibus in semper aliquet, ornare sit amet libero. Nullam eget est sit amet felis pulvinar tincidunt. Aliquam laoreet est nec nisl euismod, quis laoreet orci ultricies. Etiam tincidunt nibh in nunc volutpat eleifend sed vitae ex. Maecenas vitae urna interdum sapien euismod commodo vitae at neque. Ut sit amet scelerisque ex. Praesent at nisi semper, ullamcorper elit eu, placerat lorem. Donec sit amet aliquam tortor. Cras imperdiet convallis ligula et maximus. In posuere purus vel nisl sodales aliquet.
+
+=== Metrics
+
+Application metrics can be pulled from `/management/metrics` path in a Prometheus compatible format.
+
+|===
+|Name |Description
+
+|vehicle_create
+|Sum of device creations.
+|vehicle_delete
+|Sum of device deletions.
+
+|...
+|...
+
+|===
+
+=== Logging
+
+The application logs to standard output and if variable `SPRING_PROFILES_ACTIVE` contains `json` the format will be in JSON. All important audit messages can be found in the following table.
+
+
+|===
+|Log |Description
+
+|[AUDIT_VEHICLE] vehicle <VIN> has been <ACTION>
+|Audit actions performed on a device. Actions can be created, updated or deleted.
+|===
+
+=== Versioning
+
+The application is using Semantic Versioning.
+
+All changes on the API level are backward compatible and the API follows the https://opensource.zalando.com/restful-api-guidelines/[Zalando RESTful API and Event Guidelines].

@@ -1,0 +1,31 @@
+app:
+  name: @app.name@
+  version: @project.version@
+  postgres:
+    host: localhost
+    port: 5432
+    database: postgres
+    username: postgres
+    password: postgres
+spring:
+  main:
+    web-application-type: none
+  application:
+    name: @app.name@
+  cloud:
+    vault:
+      enabled: false
+      kv:
+        enabled: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${app.postgres.host}:${app.postgres.port}/${app.postgres.database}
+    username: ${app.postgres.username}
+    password: ${app.postgres.password}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog.yml

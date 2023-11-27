@@ -1,0 +1,5 @@
+ inout functionCriteria{
+        brands: [String]
+        models: [String]
+        countries: [String]
+      }

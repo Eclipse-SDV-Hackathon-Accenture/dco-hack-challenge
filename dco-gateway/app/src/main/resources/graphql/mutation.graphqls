@@ -1,0 +1,56 @@
+scalar Upload
+
+type Mutation{
+  createScenario(file: Upload!, scenarioInput: ScenarioInput): ID
+  updateScenario(id: ID!, file: Upload, scenarioInput: ScenarioInput): ID
+  deleteScenarioById(id: ID!): String
+  createTrack(trackInput: TrackInput): Track
+  deleteTrackById(id: ID!): String
+  launchSimulation(simulationInput: SimulationInput): String
+}
+
+input ScenarioInput {
+  name: String
+  status: StatusEnum
+  type: TypeEnum
+  description: String
+  createdBy: String
+  lastModifiedBy: String
+}
+
+input TrackInput {
+  name: String!
+  trackType: String
+  state: String
+  duration: String!
+  description: String
+  componentId: ID
+  vehicles: [Vehicle]
+}
+
+input Vehicle {
+  vin: String
+  country: String
+}
+
+enum StatusEnum {
+  CREATED,
+  ARCHIVED
+}
+
+enum TypeEnum {
+  MQTT,
+  CAN
+}
+
+input SimulationInput {
+  name: String!
+  environment: String
+  platform: String
+  scenarioType: String!
+  hardware: String
+  description: String
+  tracks: [ID!]!
+  scenarios: [ID!]!
+  createdBy: String
+}

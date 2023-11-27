@@ -1,0 +1,47 @@
+query LIST_VEHICLE {
+  vehicleReadByQuery(search: null, query: null, page: 0, size: 2, sort: null){
+   content{
+     vin
+     owner
+     ecomDate
+     country
+     model
+     brand
+     region
+     instantiatedAt
+     actualBatteryCapacity
+     createdAt
+     updatedAt
+     status
+     type
+     fleets {
+       id
+       name
+       type
+     }
+     services {
+       serviceId
+       operation
+       updatedAt
+     }
+     devices {
+       id
+       type
+       status
+       createdAt
+       gatewayId
+       dmProtocol
+       modifiedAt
+       dmProtocolVersion
+    }
+  }
+  empty
+  first
+  last
+  page
+  size
+  pages
+  elements
+  total
+  }
+}

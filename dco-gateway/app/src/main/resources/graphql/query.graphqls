@@ -1,0 +1,139 @@
+type Query {
+  scenarioReadByQuery(query: String, search: String, page: Int, size: Int, sort: [String]): ScenarioPage
+  searchScenarioByPattern(scenarioPattern: String, page: Int, size: Int): ScenarioPage
+  trackReadByQuery(query: String, search: String, page: Int, size: Int, sort: [String]): TrackPage
+  searchTrackByPattern(trackPattern: String, page: Int, size: Int): TrackPage
+  vehicleReadByQuery(query: String, search: String, page: Int, size: Int, sort: [String]): VehiclePage
+  findTrackById(id: ID): Track
+  simulationReadByQuery(query: String, search: String, page: Int, size: Int, sort: [String]): SimulationPage
+  getHardwareModule: [String]
+  getVehicleByVin(vin: String): VehicleResponse
+}
+
+type ScenarioPage {
+  content: [Scenario]
+  empty: Boolean
+  first: Boolean
+  last: Boolean
+  page: Int
+  size:Int
+  pages: Int
+  elements: Int
+  total: Int
+}
+
+type TrackPage {
+  content: [Track]
+  empty: Boolean
+  first: Boolean
+  last: Boolean
+  page: Int
+  size:Int
+  pages: Int
+  elements: Int
+  total: Int
+}
+
+type Track {
+  id: ID
+  name: String
+  trackType: String
+  state: String
+  duration: String
+  description: String
+  vehicles: [VehicleResponse]
+}
+
+type VehicleResponse {
+  vin: String
+  owner:String
+  ecomDate: String
+  country : String
+  model: String
+  brand: String
+  region: String
+  instantiatedAt: String
+  actualBatteryCapacity: String
+  createdAt: String
+  updatedAt: String
+  status: String
+  type: String
+  fleets: [FleetResponse]
+  services: [ServiceResponse]
+  devices: [DeviceResponse]
+  tags: [String]
+}
+
+type FleetResponse {
+  id: String
+  name: String
+  type: String
+}
+
+type ServiceResponse {
+  serviceId: String
+  operation: String
+  updatedAt: String
+}
+
+type DeviceResponse {
+  id: String
+  type: String
+  status: String
+  createdAt: String
+  gatewayId: String
+  modelType: String
+  dmProtocol: String
+  modifiedAt: String
+  dmProtocolVersion: String
+  serialNumber: String
+  components: [DeviceComponentResponse]
+}
+
+type DeviceComponentResponse {
+  id: String
+  name: String
+  status: String
+  version: String
+  environmentType: String
+}
+
+type VehiclePage {
+  content: [VehicleResponse]
+  empty: Boolean
+  first: Boolean
+  last: Boolean
+  page: Int
+  size:Int
+  pages: Int
+  elements: Int
+  total: Int
+}
+
+type SimulationPage {
+  content: [Simulation]
+  empty: Boolean
+  first: Boolean
+  last: Boolean
+  page: Int
+  size:Int
+  pages: Int
+  elements: Int
+  total: Int
+}
+
+type Simulation {
+  id: ID
+  name: String
+  status: String
+  environment: String
+  platform: String
+  scenarioType: String
+  hardware: String
+  noOfVehicle: Int
+  noOfScenarios: Int
+  brands: [String]
+  description: String
+  createdBy: String
+  startDate: String
+}

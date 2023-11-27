@@ -1,0 +1,65 @@
+app:
+  rest:
+    port: 8082
+  probes:
+    port: 8082
+  cors:
+    origins: "*"
+    headers: "*"
+  postgres:
+    host: localhost
+    port: 5432
+    database: postgres
+    username: postgres
+    password: postgres
+  storage:
+    url: http://localhost:9000
+    access.key: none
+    secret.key: none
+    bucket: scenario-library-service
+  username: developer
+  password: password
+track-service:
+  url: http://localhost:8081
+server:
+  port: ${app.rest.port}
+  forward-headers-strategy: FRAMEWORK
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${app.postgres.host}:${app.postgres.port}/${app.postgres.database}
+    username: ${app.postgres.username}
+    password: ${app.postgres.password}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+springdoc:
+  api-docs:
+    path: /openapi
+  swagger-ui:
+    path: /openapi/ui
+management:
+  server:
+    port: ${app.probes.port}
+  info:
+    env:
+      enabled: true
+    build:
+      enabled: false
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    endpoints:
+      enabled-by-default: false
+      web:
+        base-path: /management
+        exposure:
+          include: info,health,metrics,prometheus

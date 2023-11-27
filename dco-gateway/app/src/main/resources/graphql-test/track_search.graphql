@@ -1,0 +1,20 @@
+query SEARCH_TRACK {
+	searchTrackByPattern(trackPattern: "eu", page:0, size:11){
+    content{
+      id
+      name
+      trackType
+      state
+      description
+      duration
+    }
+    empty
+    first
+    last
+    page
+    size
+    pages
+    elements
+    total
+  }
+}

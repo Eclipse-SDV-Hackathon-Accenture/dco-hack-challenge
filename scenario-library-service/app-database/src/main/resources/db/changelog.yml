@@ -1,0 +1,4 @@
+databaseChangeLog:
+- include:
+    file: changelog/v000-scenario-schema.sql
+    relativeToChangelogFile: true

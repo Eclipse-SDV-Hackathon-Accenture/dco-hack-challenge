@@ -1,0 +1,19 @@
+[[system-configuration]]
+== System Configuration
+
+Proin venenatis fermentum velit, in dictum mi maximus ac. Nam augue lectus, finibus in semper aliquet, ornare sit amet libero. Nullam eget est sit amet felis pulvinar tincidunt. Aliquam laoreet est nec nisl euismod, quis laoreet orci ultricies. Etiam tincidunt nibh in nunc volutpat eleifend sed vitae ex. Maecenas vitae urna interdum sapien euismod commodo vitae at neque. Ut sit amet scelerisque ex. Praesent at nisi semper, ullamcorper elit eu, placerat lorem. Donec sit amet aliquam tortor. Cras imperdiet convallis ligula et maximus. In posuere purus vel nisl sodales aliquet.
+
+=== Environment Variables
+
+|===
+|Name |Default |Description
+
+|APP_REDIS_HOST
+|localhost
+|The Redis host name
+
+|...
+|...
+|...
+
+|===

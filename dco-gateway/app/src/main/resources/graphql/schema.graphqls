@@ -1,0 +1,30 @@
+scalar ID
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Scenario {
+  id: ID
+  name: String
+  status: StatusEnum
+  type: TypeEnum
+  description: String
+  url: String
+  createdBy: String
+  createdAt: String
+  lastModifiedBy: String
+  lastModifiedAt: String
+  file: FileData
+}
+
+type FileData {
+  id: ID
+  path: String
+  size: String
+  checksum: String
+  updatedBy: String
+  updatedOn: String
+  releaseNotes: String
+}

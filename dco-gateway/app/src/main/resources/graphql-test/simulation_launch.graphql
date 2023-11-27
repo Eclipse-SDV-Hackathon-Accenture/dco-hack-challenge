@@ -1,0 +1,15 @@
+mutation LAUNCH_SIMULATION {
+  launchSimulation(
+    simulationInput: {
+      name: "Test Simulation"
+      environment: "Development Demo"
+      platform: "Task Management"
+      scenarioType: "Over-The-Air Service"
+      hardware: "TEST_OTA"
+      description: "Test Simulation Data"
+      tracks: ["bd6ed64b-0547-42b4-9769-d0a0ea095070", "5a955942-6169-4b0f-a26b-b4585d19ed55"]
+    	scenarios: ["74fef2c0-4efc-42bb-b064-da7371421c8b"]
+      createdBy: "Kashif.Kamal"
+    }
+  )
+}

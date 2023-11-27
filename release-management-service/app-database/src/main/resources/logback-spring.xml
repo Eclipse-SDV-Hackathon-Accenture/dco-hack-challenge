@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <springProperty name="name" source="app.name"/>
+  <springProfile name="json">
+    <appender name="json" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+        <provider class="net.logstash.logback.composite.loggingevent.ArgumentsJsonProvider"/>
+        <customFields>
+          {
+            "app": {
+              "name": "${name}"
+            }
+          }
+        </customFields>
+      </encoder>
+    </appender>
+    <root level="info">
+      <appender-ref ref="json"/>
+    </root>
+  </springProfile>
+  <springProfile name="!json">
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+        <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+      </encoder>
+    </appender>
+    <root level="info">
+      <appender-ref ref="stdout" />
+    </root>
+  </springProfile>
+</configuration>

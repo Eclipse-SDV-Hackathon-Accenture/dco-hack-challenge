@@ -1,0 +1,11 @@
+input SimulationInput {
+  name: String
+  environment: String
+  platform: String
+  scenarioType: String
+  hardware: String
+  description: String
+  tracks: [ID]
+  scenarios: [ID]
+  createdBy: String
+}

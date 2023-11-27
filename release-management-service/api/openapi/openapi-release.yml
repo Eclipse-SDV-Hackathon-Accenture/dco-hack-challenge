@@ -1,0 +1,565 @@
+# TODO: adapt openapi specification itself and file name
+openapi: 3.0.1
+info:
+  title: openapi-release
+  version: latest
+servers:
+- url: ${OPEN_API_SERVER_URL:http://localhost:8080}
+tags:
+- name: Release
+  description: The endpoints for release interactions
+paths:
+  /api/release/metatrack:
+    get:
+      tags:
+      - Release
+      summary: Read MetaTrack
+      description: Read MetaTrack
+      operationId: getMetaTrack
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "404":
+          description: Not Found
+      security:
+      - oauth2:
+        - openid
+  /api/release/brand:
+    get:
+      tags:
+        - Release
+      summary: Read Brand Model Country List
+      description: Read Brand Model Country List
+      operationId: getBrandModelCountryList
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: "#/components/schemas/BrandModelCountry"
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/create:
+    post:
+      tags:
+        - Release
+      summary: Create Release
+      description: Create Release
+      operationId: createRelease
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateReleaseRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Release"
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/listRelease:
+    get:
+      tags:
+        - Release
+      summary: List Release
+      description: List Release
+      operationId: listTrackRelease
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Release"
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/{id}:
+    get:
+      tags:
+        - Release
+      summary: Read release by id
+      description: Read release by id
+      operationId: getReleaseById
+      parameters:
+        - name: id
+          in: path
+          description: The release id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Release"
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+    delete:
+      tags:
+        - Release
+      summary: Delete release by id
+      description: Delete release by id
+      operationId: deleteReleaseById
+      parameters:
+        - name: id
+          in: path
+          description: The release id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Release"
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/function:
+    get:
+      tags:
+        - Release
+      summary: Read Function Data
+      description: Read Function Data
+      operationId: getFunctionDataSet
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FunctionDataSet"
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/approver/status/{id}:
+    get:
+      tags:
+        - Release
+      summary: Get Approver status
+      description: Get Approver status
+      operationId: getQualitygateAndApproversStatus
+      parameters:
+        - name: id
+          in: path
+          description: The release id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: "#/components/schemas/ReleaseApprovers"
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/approver/update:
+    put:
+      tags:
+        - Release
+      summary: Update Approver status
+      description: Update Approver status
+      operationId: updateQualityGateWithApprovers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateApproverStatus"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/createWorkflowDefinition:
+    post:
+      tags:
+        - Release
+      summary: Create Workflow Registry
+      description: Create Workflow Registry
+      operationId: createWorkflowDefinition
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkflowDefinition"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+            - openid
+  /api/release/getWorkflowDefinition/{id}:
+    get:
+      tags:
+        - Release
+      summary: Get Workflow Definition by id
+      description: Get Workflow Definition by id
+      operationId: getWorkflowDefinitionById
+      parameters:
+        - name: id
+          in: path
+          description: The Workflow Definition id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DefinitionResponse"
+  /api/release/getAllWorkflowDefinition:
+    get:
+      tags:
+        - Release
+      summary: Get Workflow Definition
+      description: Get Workflow Definition
+      operationId: getAllWorkflowDefinition
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DefinitionResponse"
+  /api/release/approver/create:
+    put:
+      tags:
+        - Release
+      summary: create Approver status
+      description: create Approver status
+      operationId: createQualityGateWithApprovers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateQualityGateWithApprovers"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        "404":
+          description: Not Found
+      security:
+        - oauth2:
+
+components:
+  schemas:
+    BrandModelCountry:
+      type: object
+      properties:
+        brands:
+          type: array
+          items:
+            $ref: "#/components/schemas/BrandModel"
+        countries:
+          type: array
+          items:
+            type: string
+      description: The Brand Model Country data
+    BrandModel:
+      type: object
+      properties:
+        name:
+          type: string
+        models:
+          type: array
+          items:
+            type: string
+      description: The Brand Model data
+    CreateReleaseRequest:
+      type: object
+      properties:
+        releaseId:
+          type: string
+        metaTrack:
+          type: string
+        isHardwareChangesAllowed:
+          type: boolean
+        brands:
+          type: array
+          items:
+            type: string
+        models:
+          type: array
+          items:
+            type: string
+        countries:
+          type: array
+          items:
+            type: string
+        functions:
+          type: array
+          items:
+            $ref: "#/components/schemas/FunctionData"
+        releaseDate:
+          type: string
+        releaseStatus:
+          type: string
+          $ref: "#/components/schemas/ReleaseStatus"
+      description: The Create Release data
+    FunctionData:
+      type: object
+      properties:
+        name:
+          type: string
+        ecuDatas:
+          type: array
+          items:
+            $ref: "#/components/schemas/EcuData"
+      description: The function data
+    EcuData:
+      type: object
+      properties:
+        ecu:
+          type: string
+        hardwareVersion:
+          type: string
+        componentId:
+          type: string
+          format: uuid
+        componentName:
+          type: string
+        componentVersion:
+          type: string
+        status:
+          type: string
+        lastChange:
+          type: string
+        actualBatteryCapacity:
+          type: string
+      description: The Ecu data
+    Release:
+      type: object
+      properties:
+        releaseId:
+          type: string
+        metaTrack:
+          type: string
+        isHardwareChangesAllowed:
+          type: boolean
+        brands:
+          type: array
+          items:
+            type: string
+        models:
+          type: array
+          items:
+            type: string
+        countries:
+          type: array
+          items:
+            type: string
+        functions:
+          type: array
+          items:
+            $ref: "#/components/schemas/FunctionData"
+        releaseDate:
+          type: string
+        createdDate:
+          type: string
+        releaseStatus:
+          type: string
+          $ref: "#/components/schemas/ReleaseStatus"
+      description: The Create Release data
+    FunctionDataSet:
+      type: object
+      properties:
+        name:
+          type: string
+        ecus:
+          type: array
+          items:
+            $ref: "#/components/schemas/EcuDataSet"
+      description: The function data set
+    EcuDataSet:
+      type: object
+      properties:
+        ecu:
+          type: string
+        hardwares:
+          type: array
+          items:
+            type: string
+      description: The ecu data set
+    ReleaseApprovers:
+      type: object
+      properties:
+        releaseId:
+          type: string
+        gatesWithApprovers:
+          type: array
+          items:
+            $ref: "#/components/schemas/GateWithApprover"
+      description: Release with Approver Data
+    GateWithApprover:
+      type: object
+      properties:
+        qualityGate:
+          type: integer
+          format: int32
+        tracks:
+          type: array
+          items:
+            type: object
+        approvers:
+          type: array
+          items:
+            type: string
+        isPassed:
+          type: boolean
+        status:
+          type: string
+          $ref: "#/components/schemas/GateStatus"
+        approvedDate:
+          type: string
+      description: Gate with Approver Data
+    UpdateApproverStatus:
+      type: object
+      properties:
+        releaseId:
+          type: string
+        qualityGate:
+          type: integer
+          format: int32
+        name:
+          type: string
+        isApproved:
+          type: boolean
+        status:
+          type: string
+          $ref: "#/components/schemas/GateStatus"
+      description: Update Approver status
+    GateStatus:
+      type: string
+      enum: [PENDING, INPROGRESS, PASSED]
+    ReleaseStatus:
+      type: string
+      enum: [TESTING, READY_FOR_RELEASE]
+    WorkflowDefinition:
+      type: object
+      properties:
+        type:
+          type: string
+        namespace:
+          type: string
+        description:
+          type: string
+    DefinitionResponse:
+     type: object
+     properties:
+       type:
+         type: string
+       namespace:
+         type: string
+       description:
+         type: string
+       definition:
+         type: string
+         $ref: "#/components/schemas/Definition"
+       created:
+         type: string
+       status:
+         type: string
+    Definition:
+      type: object
+      properties:
+        states:
+          type: array
+          items:
+            $ref: "#/components/schemas/States"
+    States:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+    CreateQualityGateWithApprovers:
+      type: object
+      properties:
+        metaTrack:
+          type: string
+        track:
+          type: object
+        qualityGates:
+          type: array
+          items:
+            type: string
+        approvers:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: ${OAUTH2_AUTHORIZATION_URL:http://localhost:8000/auth/realms/default/protocol/openid-connect/auth}
+          tokenUrl: ${OAUTH2_TOKEN_URL:http://localhost:8000/auth/realms/default/protocol/openid-connect/token}
+          scopes:
+            openid: openid

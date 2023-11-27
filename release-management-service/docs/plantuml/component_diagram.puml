@@ -1,0 +1,52 @@
+@startuml
+' !include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/lightgray/puml-theme-lightgray.puml
+
+title Release Management component Diagram
+
+node "Frontend" {
+scale 0.5
+   component [ Release Management UI] as UI
+ }
+
+' node  "DCO Gateway" {
+
+  'component [ DCO Gateway Aggrigator] as AG
+'}
+
+node "Backend \n Release Management Service" {
+    [Release Management REST API] as GraphQLService
+    [Release Management Track Domain]  as GraphQLSchema
+    [Release Management Repository] as repository
+    [Release Management Entity] as entity
+}
+
+Interface "REST API " as WebSocket
+
+UI -down---- [DCO Gateway Aggrigator]
+database "RM PostgreSQL\n" as database{
+    [RM APPS DB]
+    [Attribute models]
+}
+
+node "Device Management Service"{
+    [Device Mgmt.Service] as DAS
+}
+
+node "Packaging Service "{
+    [Software Repo. service] as PAS
+
+}
+node "TaskManagement Service "{
+    [TaskManagement Service] as TAM
+}
+DAS --( WebSocket
+PAS --( WebSocket
+TAM --( WebSocket
+WebSocket -- GraphQLService
+GraphQLService -right- repository: database access
+GraphQLSchema .right. entity: definition
+GraphQLService -down- entity: use
+repository -down- entity: use
+[DCO Gateway Aggrigator]-down-(GraphQLService: "REST API"
+repository .. database
+@enduml

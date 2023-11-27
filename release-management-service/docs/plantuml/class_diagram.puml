@@ -1,0 +1,214 @@
+@startuml
+interface com.tsystems.dco.release.integration.track.client.TrackApiClient {
+~ ResponseEntity<TrackResponse> findTrackByName(String)
+~ ResponseEntity<CampaignResponse> createCampaign(TrackCampaign)
+~ ResponseEntity<String> updateSoftwareComponentStatus(ComponentStatusData)
+}
+scale 0.5
+class com.tsystems.dco.release.integration.track.domain.CampaignResponse {
+- Long id
+- String type
+- String name
+- String description
+- String status
+- String startDate
+- String endDate
+- Boolean sequential
+- String updatedAt
+- Boolean archived
+- String createdBy
+- String updatedBy
+- UUID businessEventId
+- List<RuleResponseDto> rules
+- List<String> vehicles
+}
+class com.tsystems.dco.release.integration.track.domain.ComponentStatusData {
+- UUID componentId
+- String status
+}
+
+class com.tsystems.dco.release.integration.track.domain.TrackCampaignEntity {
+- List<String> vin
+- String version
+- String name
+- String description
+- String endDate
+}
+class com.tsystems.dco.release.entity.EcuDataEntity {
+~ UUID id
+~ String ecu
+~ String hardwareVersion
+~ UUID componentId
+~ String componentName
+~ String componentVersion
+~ String status
+- String lastChange
+}
+class com.tsystems.dco.release.entity.ReleaseEntity {
+- String releaseId
+- String metaTrack
+- Boolean isHardwareChangesAllowed
+- List<String> brands
+- List<String> models
+- List<String> countries
+- String releaseDate
+- String createdDate
+- Set<FunctionEntity> functions
+- String releaseStatus
+}
+interface com.tsystems.dco.release.repository.ReleaseRepository {
+}
+class com.tsystems.dco.release.integration.track.domain.TrackResponse {
+- UUID id
+- String name
+- String trackType
+- String state
+- String duration
+- String description
+- Integer count
+- List<ComponentResponse> components
+- List<VehicleResponse> vehicles
+}
+
+
+interface com.tsystems.dco.release.mapper.ReleaseMapper {
+~ ReleaseMapper INSTANCE
+~ Release toModel(ReleaseEntity)
+~ ReleaseEntity toEntity(CreateReleaseRequest)
+~ ReleaseEntity toEntity(Release)
+~ QualityGateWithApproversListEntity toEntity(QualityGateWithApproversList)
+~ ReleaseApprovers toModel(QualityGateWithApproversListEntity)
+}
+class com.tsystems.dco.release.entity.FunctionEntity {
+- UUID functionId
+- String name
+- Set<EcuDataEntity> ecuDatas
+}
+class com.tsystems.dco.release.integration.track.domain.RuleResponseDto {
+- String id
+- Integer sequence
+- String description
+- String type
+- Map<String,Object> filter
+- Set<ExtendedFilterDto> filterExtended
+- Map<String,Object> action
+- String priority
+- Map<String,Object> options
+}
+class com.tsystems.dco.release.entity.QualityGateWithApproversEntity {
+~ UUID id
+~ Integer qualityGate
+~ List<String> tracks
+~ List<UUID> trackIds
+~ List<String> approvers
+~ Boolean isPassed
+~ GateStatus status
+~ String approvedDate
+}
+class com.tsystems.dco.release.integration.track.domain.VehicleResponse {
+- String vin
+- String owner
+- String ecomDate
+- String country
+- String model
+- String brand
+- String region
+- String instantiatedAt
+- String createdAt
+- String updatedAt
+- String status
+}
+interface com.tsystems.dco.release.repository.QualityGateWithApproversRepository {
+}
+class com.tsystems.dco.release.domain.QualityGateWithApprovers {
+- Integer qualityGate
+- List<String> tracks
+- List<UUID> trackIds
+- List<String> approvers
+~ Boolean isPassed
+~ String status
+~ String approvedDate
+}
+class com.tsystems.dco.release.integration.track.domain.ComponentStatus {
+- UUID componentId
+- String status
+}
+class com.tsystems.dco.release.entity.QualityGateWithApproversListEntity {
+~ String releaseId
+~ List<QualityGateWithApproversEntity> gatesWithApprovers
+}
+class com.tsystems.dco.release.domain.QualityGateWithApproversList {
+~ String releaseId
+~ List<QualityGateWithApprovers> gatesWithApprovers
+}
+class com.tsystems.dco.release.integration.track.domain.ExtendedFilterDto {
+- String key
+- String value
+- String operation
+- String type
+- String scope
+- String name
+}
+class com.tsystems.dco.release.service.ReleaseService {
+- {static} Logger logger
+- ReleaseRepository releaseRepository
+- QualityGateWithApproversRepository qualityGateWithApproversRepository
+- TrackApiClient trackApiClient
+- {static} String APPROVER1
+- {static} String APPROVER2
+- {static} String SECURITY_WF
+- {static} String COMPONENT_STATUS
++ Release createRelease(CreateReleaseRequest)
+- QualityGateWithApproversList setQualityGateAndApprovers(String)
+- QualityGateWithApproversList setApproversAndTracks(List<ApproverTrackGate>)
+- Optional<CampaignResponse> startCampaign(List<String>,String)
++ String insertQualityGateWithApprovers(QualityGateWithApproversList)
++ BrandModelCountry getBrandModelCountryList()
++ List<String> getMetaTrack()
++ List<Release> listTrackRelease()
++ Release getReleaseById(String)
++ List<FunctionDataSet> getFunctionDataSet()
++ String updateQualityGateWithApprovers(UpdateApproverStatus)
++ ReleaseApprovers getQualitygateAndApproversStatus(String)
+}
+class com.tsystems.dco.release.controller.ReleaseController {
+- {static} Logger logger
+- ReleaseService releaseService
++ ResponseEntity<Release> createRelease(CreateReleaseRequest)
++ ResponseEntity<BrandModelCountry> getBrandModelCountryList()
++ ResponseEntity<List<FunctionDataSet>> getFunctionDataSet()
++ ResponseEntity<List<String>> getMetaTrack()
++ ResponseEntity<ReleaseApprovers> getQualitygateAndApproversStatus(String)
++ ResponseEntity<Release> getReleaseById(String)
++ ResponseEntity<List<Release>> listTrackRelease()
++ ResponseEntity<String> updateQualityGateWithApprovers(UpdateApproverStatus)
+}
+class com.tsystems.dco.release.integration.track.client.TrackFeignClientConfig {
++ RequestInterceptor authenticationInterceptor(UserService)
+}
+class com.tsystems.dco.release.domain.ApproverTrackGate {
+- Integer qualityGate
+- List<String> tracks
+- String approver
+}
+class com.tsystems.dco.release.integration.track.domain.ComponentResponse {
+- UUID id
+- String name
+- String status
+- String version
+- String revision
+- String environmentType
+- List<TrackResponse> tracks
+}
+
+
+com.tsystems.dco.release.mapper.ReleaseMapper <|--|> com.tsystems.dco.release.repository.ReleaseRepository
+com.tsystems.dco.release.repository.ReleaseRepository  <|--|> com.tsystems.dco.release.service.ReleaseService
+com.tsystems.dco.release.controller.ReleaseController  <|--|> com.tsystems.dco.release.repository.ReleaseRepository
+com.tsystems.dco.release.integration.track.domain <|--|> com.tsystems.dco.release.integration.track.client
+com.tsystems.dco.release.integration.track.client <|--|> com.tsystems.dco.release.entity
+com.tsystems.dco.release.entity  <|--|> com.tsystems.dco.release.mapper.ReleaseMapper 
+
+com.tsystems.dco.release.entity <|--|> com.tsystems.dco.release.domain
+com.tsystems.dco.release.domain <|--|> com.tsystems.dco.release.integration.track.domain
+@enduml

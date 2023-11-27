@@ -1,0 +1,28 @@
+[[system-permissions]]
+== System Permissions
+
+Release Managment  service is Keycloak integrated service.
+
+|===
+|Name |Description
+
+|Create Release
+|Allow user to Create Release
+
+|Define MetaData
+|Allow user to Define Metadata
+
+|Define Approvers 
+|Allow user to define levels of approvers using TM-Task Managment Service 
+
+|Define Quality Gates 
+|Allow user to define Quality GAtes using TM-Task Managment Service 
+
+|Define Functions
+|Allow user to Associate function with selected Release 
+
+
+|Define ECU 
+|Allow user to Associate ECU  with Release Service 
+
+|===

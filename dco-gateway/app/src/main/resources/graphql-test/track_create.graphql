@@ -1,0 +1,24 @@
+mutation CREATE_TRACK {
+  createTrack (
+    trackInput: {
+      name: "Test Track"
+      trackType: "Test"
+      duration: "7"
+      state: "CREATED"
+      description: "Test Desc"
+      vehicles: [
+        {
+          vin: "VINTEST1HQMIOUT08"
+          country: "DE"
+        }
+      ]
+    }
+  ){
+    id
+    name
+    trackType
+    state
+    description
+    duration
+  }
+}

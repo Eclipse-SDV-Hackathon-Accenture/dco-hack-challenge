@@ -1,0 +1,9 @@
+input ComponentInput{
+      name: String
+      type: String
+      status: [DRAFT,TEST,READY,SUSPEND,PRODUCTION]
+      version: String
+      updatedBy: String
+      targetDevices: [String]
+      targetHardwareModule: [String]
+    }

@@ -1,0 +1,126 @@
+app:
+  name: @app.name@
+  version: @project.version@
+  rest:
+    port: 8083
+  probes:
+    port: 8083
+  cors:
+    origins: "*"
+    headers: "*"
+  oauth2:
+    login:
+      enabled: false
+    issuer: http://localhost:8000
+    client:
+      id: "$RELEASE_CLIENT_ID"
+      secret: "$RELEASE_CLIENT_SECRET"
+  postgres:
+    host: localhost
+    port: 5432
+    database: postgres
+    username: postgres
+    password: postgres
+redis-server:
+  port: 6379
+  host: localhost
+  password: ${APP_REDIS_STREAMS_PASSWORD:jzndQhexU66VVHByj2eBGQQDGcwWLENC}
+  topic: pubsub.queue
+campaign-management:
+  url: ${CAMPAIGN_MANAGEMENT_URL:http://localhost:8081}
+track-management:
+  url: ${TRACK_MANAGEMENT_URL:http://localhost:8081}
+  username: developer
+  password: password
+workflow-registry:
+  url: ${WORKFLOW_REGISTRY_URL:http://localhost:8081}
+task-management-api:
+  url: ${TASK_MANAGEMENT_URL:http://localhost:8081}
+task-management:
+  host: ${TM_HOST:google.com}
+  port: 7233
+  name: @app.name@
+  namespace: DCO
+server:
+  port: ${app.rest.port}
+  forward-headers-strategy: FRAMEWORK
+spring:
+  main:
+    allow-circular-references: true
+  mail:
+    host: ${SMTP_HOST:release-management-service-maildev.dco}
+    port: 1025
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    username: DCOGateWayServer@t-systems.com
+    password:
+  application:
+    name: @app.name@
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${app.postgres.host}:${app.postgres.port}/${app.postgres.database}
+    username: ${app.postgres.username}
+    password: ${app.postgres.password}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  liquibase:
+    enabled: false
+    change-log: classpath:db/changelog.yml
+  cloud:
+    vault:
+      enabled: false
+      kv:
+        enabled: false
+springdoc:
+  api-docs:
+    path: /openapi
+  swagger-ui:
+    path: /openapi/ui
+management:
+  server:
+    port: ${app.probes.port}
+  info:
+    env:
+      enabled: true
+    build:
+      enabled: false
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /management
+      exposure:
+        include: info,health,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        descriptions: false
+        step: 30s
+info:
+  app:
+    name: ${app.name}
+    version: ${app.version}
+    profiles: ${spring.profiles.active}
+logging:
+  config: "classpath:logback-spring.xml"
+  level:
+    com.tsystems.dco: INFO
+tls:
+  enabled: true
+  caCertPath: tls/certs/dev/ca.cert
+  clientKeyPath: tls/certs/dev/client.key
+  clientCertPath: tls/certs/dev/client.pem

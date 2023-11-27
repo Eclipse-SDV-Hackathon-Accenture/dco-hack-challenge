@@ -1,0 +1,16 @@
+[[system-interfaces]]
+== System Interfaces
+
+Find all available interface definitions here.
+WIP- Add DCO- GrphQL Details 
+
+'''
+
+.GraphQL
+[%collapsible]
+====
+[source,graphql]
+----
+include::../app/src/main/resources/graphql/schema.graphqls[]
+----
+====

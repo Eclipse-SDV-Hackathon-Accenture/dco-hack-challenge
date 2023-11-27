@@ -1,0 +1,4 @@
+type WorkflowDefinition {
+  type: String
+  namespace: String
+}

@@ -1,0 +1,38 @@
+[[system-requirements]]
+== System Requirements
+
+Proin venenatis fermentum velit, in dictum mi maximus ac. Nam augue lectus, finibus in semper aliquet, ornare sit amet libero. Nullam eget est sit amet felis pulvinar tincidunt. Aliquam laoreet est nec nisl euismod, quis laoreet orci ultricies. Etiam tincidunt nibh in nunc volutpat eleifend sed vitae ex. Maecenas vitae urna interdum sapien euismod commodo vitae at neque. Ut sit amet scelerisque ex. Praesent at nisi semper, ullamcorper elit eu, placerat lorem. Donec sit amet aliquam tortor. Cras imperdiet convallis ligula et maximus. In posuere purus vel nisl sodales aliquet.
+
+=== Application
+
+|===
+|Type |Minimum |Recommended
+
+|CPU
+|0.5
+|1
+
+|RAM
+|512 MB
+|1024 MB
+
+|===
+
+=== Database
+
+|===
+|Type |Minimum |Recommended
+
+|CPU
+|0.5
+|1
+
+|RAM
+|512 MB
+|1024 MB
+
+|Storage
+|10 GB
+|100 GB
+
+|===

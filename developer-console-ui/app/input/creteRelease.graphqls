@@ -1,0 +1,21 @@
+input CreateReleaseRequest{
+      releaseId: String
+      metaTrack: String
+      isHardwareChangesAllowed: Boolean
+      brands: [String]
+      models: [String]
+      countries: [String]
+      releaseDate: String
+      functions: [
+        {
+          name: String
+          ecu: String
+          country: String
+          hardwareModule: String
+          component:String
+          componentVersion: String
+          status: String
+          lastChange: String
+        }
+      ]
+    }

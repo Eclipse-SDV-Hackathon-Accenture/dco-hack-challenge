@@ -1,0 +1,16 @@
+[[system-interfaces]]
+== System Interfaces
+
+Find all available interface definitions here.
+
+'''
+
+.OpenAPI
+[%collapsible]
+====
+[source,yaml]
+----
+include::../api/openapi/openapi-scenario.yml[]
+include::../api/openapi/openapi-track.yml[]
+----
+====

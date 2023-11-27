@@ -1,0 +1,55 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+### Helm ###
+chart/Chart.lock
+chart/charts
+
+### NPM ###
+**/node_modules
+
+### Bash ###
+.bashenv-*
+.aws
+.cache
+.config
+.helm
+.kube
+.npm
+.yarn
+.trivy
+tmp
+artifacts
+
+
+**/yarn.lock
+**/package-lock.json

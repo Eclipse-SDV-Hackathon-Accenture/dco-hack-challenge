@@ -1,0 +1,37 @@
+query TRACK_BY_ID {
+  findTrackById(id : "818094c5-0be4-4a0d-bf9f-0c70919d05ee") {
+    id
+    name
+    state
+    trackType
+    duration
+    description
+    vehicles{
+      vin
+      country
+      brand
+      status
+      updatedAt
+      actualBatteryCapacity
+      devices {
+        id
+        type
+        status
+        createdAt
+        gatewayId
+        modelType
+        dmProtocol
+        modifiedAt
+        dmProtocolVersion
+        serialNumber
+        components{
+          id
+          name
+          status
+          version
+          environmentType
+        }
+      }
+    }
+  }
+}

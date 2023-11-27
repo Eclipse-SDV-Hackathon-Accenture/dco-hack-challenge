@@ -1,0 +1,6 @@
+[[general]]
+== General
+
+Bring your coding skills to the forefront as you decode the secrets of EV battery dynamics simulation and engineer solutions for a sustainable future. You'll encounter a predefined scenario that presents a challenge encompassing topics such as battery and fleet management. You will do so by harnessing the combined power of two Eclipse Projects - SDV Console and SUMO.
+
+ 

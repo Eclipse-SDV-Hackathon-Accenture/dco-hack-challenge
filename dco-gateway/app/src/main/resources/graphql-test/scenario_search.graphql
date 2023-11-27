@@ -1,0 +1,31 @@
+query SEARCH_SCENARIO {
+	searchScenarioByPattern(scenarioPattern: "Scenario", page:0, size:11){
+    content{
+      id
+      name
+      description
+      type
+      status
+      createdBy
+      createdAt
+      lastModifiedBy
+      lastModifiedAt
+      file {
+        id
+        path
+        size
+        checksum
+        updatedBy
+        updatedOn
+      }
+    }
+    empty
+    first
+    last
+    page
+    size
+    pages
+    elements
+    total
+  }
+}

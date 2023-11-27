@@ -1,0 +1,62 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p ${APP_PORT:-3000}",
+    "build": "next build",
+    "start": "next start -p ${APP_PORT:-3000}",
+    "lint": "next lint",
+    "sonar": "node sonar.js",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage --watchAll=false --verbose",
+    "dependency-track": "npm run dependency-track:bom && npm run dependency-track:bom-upload",
+    "dependency-track:bom": "cyclonedx-node",
+    "dependency-track:bom-upload": "dependency-track -u bom.xml --dependencyTrackBaseUrl ${DEPENDENCY_TRACK_URL} --apiKey ${DEPENDENCY_TRACK_TOKEN} --projectName ${APP_NAME} --projectVersion latest",
+    "format": "prettier --write '**/*.{js,ts,tsx}'"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.6.1",
+    "@apollo/react-testing": "^4.0.0",
+    "@react-hook/resize-observer": "^1.2.5",
+    "axios": "^0.27.2",
+    "@dco/sdv-ui":"file:./dco-sdv-ui-1.120.0.tgz",
+    "easy-peasy": "^5.0.4",
+    "graphql": "^16.4.0",
+    "jest-fetch-mock": "^3.0.3",
+    "next": "12.1.0",
+    "next-http-proxy-middleware": "^1.2.4",
+    "next-router-mock": "^0.7.4",
+    "node-fetch": "^3.2.6",
+    "prom-client": "^14.0.1",
+    "react": "17.0.2",
+    "react-charts": "^3.0.0-beta.34",
+    "react-dom": "17.0.2",
+    "react-intersection-observer": "^9.2.2",
+    "swr": "^1.2.2"
+  },
+  "devDependencies": {
+    "@cyclonedx/bom": "^3.10.1",
+    "@dependency-track/bom": "^1.0.2",
+    "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
+    "@testing-library/user-event": "13.5.0",
+    "@types/react": "17.0.36",
+    "babel-jest": "^28.0.3",
+    "cross-env": "^7.0.3",
+    "eslint": "<8.0.0",
+    "eslint-config-next": "12.0.4",
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
+    "license-checker": "^25.0.1",
+    "prettier": "^2.4.1",
+    "sonarqube-scanner": "^2.8.1",
+    "typescript": "4.4.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "semi": false,
+    "printWidth": 120
+  }
+}

@@ -1,0 +1,5 @@
+input ComponentTrack {
+   componentId: ID
+   trackId: ID
+   trackName:String
+}

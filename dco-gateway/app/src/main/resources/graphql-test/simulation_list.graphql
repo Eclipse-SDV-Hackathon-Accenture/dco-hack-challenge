@@ -1,0 +1,27 @@
+query LIST_SIMULATION {
+  simulationReadByQuery(search: null, query: null, page: 0, size: 2, sort: null){
+   content{
+    id
+  	name
+  	status
+    environment
+    platform
+  	scenarioType
+    noOfVehicle
+    noOfScenarios
+    brands
+    hardware
+    description
+    createdBy
+    startDate
+  }
+  empty
+  first
+  last
+  page
+  size
+  pages
+  elements
+  total
+ }
+}
