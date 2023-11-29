@@ -1,8 +1,10 @@
 package tsystems.simapi.service;
 
-import io.swagger.v3.oas.models.security.SecurityScheme;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import tsystems.simapi.component.SumoFileGateway;
@@ -12,15 +14,11 @@ import tsystems.simapi.entity.releaseinfo.EcuDatasInfo;
 import tsystems.simapi.entity.releaseinfo.FunctionInfo;
 import tsystems.simapi.entity.releaseinfo.ReleaseInfo;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
 import java.util.*;
 
-import static java.lang.Math.exp;
 import static java.lang.Math.pow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,11 +40,11 @@ public class SumoService {
         this.sumoFileGateway = sumoFileGateway;
     }
 
-    public Boolean runSimulation() {
+    public Boolean runSimulation(String releaseId) {
         List<Integer> exitCodes = new ArrayList<>();
         exitCodes.add(executeCommand(getSimulationCommand()));
         exitCodes.add(executeCommand(getCopyLogsCommand()));
-        exitCodes.add(executeCommand(getBatteryPerformance()));
+        exitCodes.add(executeCommand(getBatteryPerformance(releaseId)));
 
         if (exitCodes.stream().anyMatch(num -> num == -1)) {
             System.out.println("An error occurred while executing the scripts.");
@@ -78,12 +76,12 @@ public class SumoService {
                 "output-files/logs");
     }
 
-    public List<String> getBatteryPerformance() {
+    public List<String> getBatteryPerformance(String releaseId) {
         return List.of("python3",
                 "visualization-scripts/batteryPerformance.py",
                 "output-files/logs/Battery.out.xml",
                 "--output",
-                "output-files/graphs/BatteryPerformance.png"
+                "output-files/graphs/" + releaseId + "-BatteryPerformance.png"
         );
     }
 
@@ -154,7 +152,7 @@ public class SumoService {
                         .lastChange(defaultEcu.getLastChange())
                         .data(newData)
                         .build()))
-                .build();
+                        .build();
     }
 
     public ReleaseInfo adjustBatteryToTemperature(ReleaseInfo defaultInfo) {
@@ -174,27 +172,16 @@ public class SumoService {
         return defaultInfo;
     }
 
-    public ResponseEntity<Map<String, List<Object>>> getPlotImages() {
-        List<Object> images = new ArrayList<>();
-        String[] imagePaths = {"output-files/graphs/Vehicle-Trajectories.png",
-                "output-files/graphs/CO2_output.png"};
-
-        for (String imagePath : imagePaths) {
-            File imageFile = new File(imagePath);
-            if (imageFile.exists()) {
-                try (InputStream inputStream = new FileInputStream(imageFile)) {
-                    images.add(imageFile);
-                } catch (IOException e) {
-                    LOGGER.error("Error reading image: {}", e.getMessage());
-                }
-            } else {
-                LOGGER.warn("Image file does not exist: {}", imageFile);
-            }
+    public ResponseEntity<byte[]> getImage(String releaseId) throws IOException {
+        File imageFile = new File("output-files/graphs/" +
+                                            releaseId +
+                                            "-BatteryPerformance.png");
+        byte[] imageBytes;
+        try (FileInputStream fis = new FileInputStream(imageFile)) {
+            imageBytes = fis.readAllBytes();
         }
-
-        Map<String, List<Object>> imageMap = new HashMap<>();
-        imageMap.put("plotImages", images);
-
-        return ResponseEntity.ok(imageMap);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_PNG);
+        return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
     }
 }

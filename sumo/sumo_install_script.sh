@@ -22,11 +22,11 @@ apt-get update && apt-get install -y \
   swig \
   openjdk-17-jdk \
   maven \
-  libeigen3-dev
+  libeigen3-dev \
+  python3-lxml
 
 pip3 install matplotlib
 pip3 install sumolib
-apt-get install python3-lxml
 git clone --recursive https://github.com/eclipse-sumo/sumo
 
 mkdir sumo/build && mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
