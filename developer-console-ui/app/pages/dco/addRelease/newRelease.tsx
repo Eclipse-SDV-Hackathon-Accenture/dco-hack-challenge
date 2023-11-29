@@ -117,19 +117,17 @@ export function NewRelease({ show, onClose, path, cellData, setToastOpenScenario
 
     const createRequestPayload = () => {
         const ecuData = [{
-                ecu: ecuDataObj[0].ecu,
-                hardwareVersion: ecuDataObj[0].hardwareVersion,
-                componentId: ecuDataObj[0].componentId,
-                componentName: ecuDataObj[0].componentName,
-                componentVersion: ecuDataObj[0].componentVersion,
-                status: ecuDataObj[0].status,
-                lastChange: ecuDataObj[0].lastChange,
-                data: {
-                    actualBatteryCapacity: ecuDataObj[0].actualBatteryCapacity,
-                    minTemperature,
-                    maxTemperature
-                }
-            }]
+            ecu: ecuDataObj[0].ecu,
+            hardwareVersion: ecuDataObj[0].hardwareVersion,
+            componentId: ecuDataObj[0].componentId,
+            componentName: ecuDataObj[0].componentName,
+            componentVersion: ecuDataObj[0].componentVersion,
+            status: ecuDataObj[0].status,
+            lastChange: ecuDataObj[0].lastChange,
+            actualBatteryCapacity: ecuDataObj[0].actualBatteryCapacity,
+            minTemperature,
+            maxTemperature
+        }]
         handleNewReleaseSubmitInService(releaseId, type, brands, countries, metaTrack, models, ecuData, releaseDate, releaseStatus, onClose)
     }
 
