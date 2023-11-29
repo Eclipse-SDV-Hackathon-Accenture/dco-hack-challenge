@@ -8,7 +8,8 @@ import {
   numberOfReleases,
   releaseManagementRowData
 } from "../../../services/functionReleaseManagement.services"
-import { GraphModal } from "./graphModal"
+import GraphModal from "./graphModal"
+
 
 export function Selectedscenario() {
   return useStoreState((state: any) => state.selectedscenario)
