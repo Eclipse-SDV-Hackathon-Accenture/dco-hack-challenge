@@ -1,4 +1,7 @@
 #!/bin/bash
+while ! apt-get update; do
+  sleep 1
+done
 pwd
 echo >> ~/.bashrc SUMO_HOME="/sumo"
 echo >> ~/.bashrc PATH="$SUMO_HOME/bin:$PATH"
@@ -23,6 +26,7 @@ apt-get update && apt-get install -y \
 
 pip3 install matplotlib
 pip3 install sumolib
+apt-get install python3-lxml
 git clone --recursive https://github.com/eclipse-sumo/sumo
 
 mkdir sumo/build && mkdir sumo/build/cmake-build && cd sumo/build/cmake-build

@@ -1,5 +1,4 @@
 #!/bin/bash -e
-
 help()
 {
    # Display Help
@@ -62,4 +61,4 @@ printf -- '\033[32m \x1b[1m  -> scenario-library-service swagger for REST APIs: 
 printf -- '\033[32m \x1b[1m  -> pgadmin client for postgresql database: http://localhost:5050. The username is "admin@default.com" and password is "admin"  \033[0m\n\n'
 printf -- '\033[32m \x1b[1m For more details, please refer the README_DCO.md file \033[0m\n\n'
 
-#mvn --file ./release-management-service/app/pom.xml spring-boot:run > /dev/null 2>&1
+#mvn --file ./release-management-service/app/bom.xml spring-boot:run > /dev/null 2>&1

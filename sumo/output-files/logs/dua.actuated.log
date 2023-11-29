@@ -1,0 +1,17 @@
+Loading net-file from 'sumo_scenario/lust.net.xml' ... done (902ms).
+Loading additional-files from 'sumo_scenario/vtypes.add.xml' ... done (8ms).
+Loading done.
+Simulation version v1_19_0+0258-083742d7325 started with time: 0.00.
+Simulation ended at time: 868.00
+Reason: All vehicles have left the simulation.
+Performance: 
+ Duration: 0.82s
+ Real time factor: 1062.42
+ UPS: 5665.850673
+Vehicles: 
+ Inserted: 10
+ Running: 0
+ Waiting: 0
+
+DijkstraRouter answered 16 queries and explored 1935.19 edges on average.
+DijkstraRouter spent 0.03s answering queries (1.94ms on average).

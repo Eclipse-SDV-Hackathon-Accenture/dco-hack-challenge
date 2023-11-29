@@ -9,4 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 public class EcuDatasInfo {
     private String actualBatteryCapacity;
+    private String maxTemperature;
+    private String minTemperature;
 }
