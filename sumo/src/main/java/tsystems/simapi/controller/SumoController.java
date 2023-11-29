@@ -11,10 +11,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.http.MediaType;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.io.InputStream;
+
 
 @RestController
 @RequestMapping("/api")
@@ -23,26 +33,18 @@ public class SumoController {
 
     @PostMapping("/run-simulation")
     public Boolean runSimulation() {
-        return sumoService.runSimulation();
+        return sumoService.runSimulation("R000");
     }
 
-    @GetMapping(value = "/run-simulation-with-release-info", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
+    @PostMapping("/run-simulation-with-release-info")
     public Boolean runSimulationWithArgs(@Valid @RequestBody ReleaseInfo releaseInfo){
         sumoService.adjustBatteryToTemperature(releaseInfo);
-        //create json
-        //add releaseInfoId
         sumoService.configureSumo(releaseInfo);
-        //add exec status sumoService.runSimulation();
-        sumoService.getPlotImages();
-        //return json
-
-        return true;
+        return sumoService.runSimulation(releaseInfo.getReleaseId());
     }
 
-    @GetMapping(value = "/img", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity<Map<String, List<Object>>> getPlotImages() throws IOException {
-        return sumoService.getPlotImages();
+    @GetMapping("/{releaseId}")
+    public ResponseEntity<byte[]> getImagesByReleaseId(@PathVariable String releaseId) throws IOException {
+        return sumoService.getImage(releaseId);
     }
 }
