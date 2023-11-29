@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2023-11-29 13:56:07 by Eclipse SUMO sumo Version v1_19_0+0258-083742d7325
+<!-- generated on 2023-11-29 19:45:15 by Eclipse SUMO sumo Version v1_19_0+0260-f25044b3d77
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -576,7 +576,7 @@
     <timestep time="45.00">
         <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!1" type="1" waiting="4.00" lane="--31634_0" pos="32.48" speed="0.00" angle="68.93" x="6886.13" y="5915.98"/>
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.14" noise="63.15" route="!10!var#1" type="1" waiting="0.00" lane="-31272#4_0" pos="12.59" speed="11.90" angle="279.87" x="6793.83" y="5604.25"/>
-        <vehicle id="3" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-11.42" noise="52.48" route="!3!var#1" type="1" waiting="0.00" lane="-30398#9_0" pos="50.35" speed="6.56" angle="241.09" x="7896.16" y="5191.61"/>
+        <vehicle id="3" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-11.41" noise="52.48" route="!3!var#1" type="1" waiting="0.00" lane="-30398#9_0" pos="50.35" speed="6.56" angle="241.09" x="7896.16" y="5191.61"/>
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!4" type="1" waiting="14.00" lane="--31890_1" pos="49.84" speed="0.00" angle="272.68" x="7428.76" y="6050.61"/>
         <vehicle id="5" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.21" noise="64.86" route="!5" type="1" waiting="0.00" lane="-32278#0_0" pos="225.56" speed="14.31" angle="229.73" x="10492.89" y="9376.10"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-0.63" noise="62.06" route="!6!var#1" type="1" waiting="0.00" lane="--32072#0_0" pos="46.94" speed="11.29" angle="105.97" x="7031.17" y="7932.84"/>
@@ -2044,7 +2044,7 @@
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.85" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-30962#2_0" pos="95.04" speed="11.54" angle="215.62" x="6523.60" y="7253.76"/>
         <vehicle id="7" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.24" noise="65.01" route="!7" type="1" waiting="0.00" lane="-31492#0_0" pos="176.60" speed="14.53" angle="188.41" x="7242.50" y="7727.99"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.37" noise="63.45" route="!8!var#1" type="1" waiting="0.00" lane="-30872#9_0" pos="5.58" speed="12.31" angle="157.17" x="5984.20" y="6026.33"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.90" noise="67.46" route="!9!var#1" type="1" waiting="0.00" lane="--32306#4_2" pos="258.57" speed="18.23" angle="126.92" x="3345.90" y="6561.34"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.93" noise="67.46" route="!9!var#1" type="1" waiting="0.00" lane="--32306#4_2" pos="258.57" speed="18.23" angle="126.92" x="3345.90" y="6561.34"/>
     </timestep>
     <timestep time="184.00">
         <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!1" type="1" waiting="8.00" lane="--31272#0_0" pos="77.50" speed="0.00" angle="77.96" x="7325.22" y="5502.85"/>
@@ -2432,7 +2432,7 @@
         <vehicle id="3" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-15.28" noise="56.53" route="!3!var#1" type="1" waiting="0.00" lane="--30496#3_1" pos="124.05" speed="9.34" angle="226.61" x="7697.00" y="4302.67"/>
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.36" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#32_1" pos="0.47" speed="15.04" angle="161.61" x="7991.19" y="4457.85"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.87" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-30256#1_0" pos="228.11" speed="11.54" angle="285.47" x="6098.95" y="7341.75"/>
-        <vehicle id="7" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.26" noise="65.01" route="!7" type="1" waiting="0.00" lane="-30528#1_0" pos="72.41" speed="14.53" angle="245.19" x="7092.51" y="7273.97"/>
+        <vehicle id="7" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.24" noise="65.01" route="!7" type="1" waiting="0.00" lane="-30528#1_0" pos="72.41" speed="14.53" angle="245.19" x="7092.51" y="7273.97"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!8!var#1" type="1" waiting="24.00" lane="-30872#9_0" pos="165.23" speed="0.00" angle="157.17" x="6046.13" y="5879.18"/>
         <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="10.95" noise="68.78" route="!9!var#1" type="1" waiting="0.00" lane="-31300_0" pos="118.04" speed="16.27" angle="355.72" x="3569.78" y="6535.85"/>
     </timestep>
@@ -2913,7 +2913,7 @@
     <timestep time="272.00">
         <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.29" noise="65.15" route="!1" type="1" waiting="0.00" lane=":-10204_7_0" pos="0.03" speed="14.72" angle="144.60" x="7739.20" y="5034.99"/>
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.22" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane=":-3702_0_0" pos="1.81" speed="14.28" angle="293.80" x="5105.93" y="6004.98"/>
-        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.34" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#39_0" pos="196.15" speed="15.04" angle="151.66" x="8350.81" y="3811.44"/>
+        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.32" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#39_0" pos="196.15" speed="15.04" angle="151.66" x="8350.81" y="3811.44"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.93" noise="61.13" route="!6!var#1" type="1" waiting="0.00" lane=":-16136_0_0" pos="1.03" speed="2.04" angle="285.46" x="5765.13" y="7431.72"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-1.70" noise="53.33" route="!8!var#1" type="1" waiting="0.00" lane=":-19544_1_0" pos="0.36" speed="3.39" angle="182.33" x="6065.90" y="5664.89"/>
         <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.44" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#6_0" pos="839.69" speed="29.06" angle="175.75" x="3563.31" y="5477.94"/>
@@ -2921,7 +2921,7 @@
     <timestep time="273.00">
         <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.31" noise="65.15" route="!1" type="1" waiting="0.00" lane=":-10204_7_0" pos="14.75" speed="14.72" angle="144.77" x="7747.64" y="5023.03"/>
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.24" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-32064#2_0" pos="6.64" speed="14.28" angle="293.99" x="5092.92" y="6010.75"/>
-        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.32" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#39_0" pos="211.19" speed="15.04" angle="151.66" x="8357.95" y="3798.19"/>
+        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.34" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#39_0" pos="211.19" speed="15.04" angle="151.66" x="8357.95" y="3798.19"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.50" noise="61.56" route="!6!var#1" type="1" waiting="0.00" lane=":-16136_0_0" pos="4.07" speed="3.04" angle="285.72" x="5762.22" y="7432.54"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="2.42" noise="62.18" route="!8!var#1" type="1" waiting="0.00" lane=":-19544_8_0" pos="0.12" speed="4.39" angle="174.37" x="6066.37" y="5660.54"/>
         <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="6.69" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#6_0" pos="868.75" speed="29.06" angle="173.96" x="3566.17" y="5448.98"/>
@@ -3039,7 +3039,7 @@
         <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="6.95" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#6_0" pos="1275.59" speed="29.06" angle="163.52" x="3638.91" y="5048.74"/>
     </timestep>
     <timestep time="288.00">
-        <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.29" noise="65.15" route="!1" type="1" waiting="0.00" lane="-30528#28_0" pos="49.33" speed="14.72" angle="156.26" x="7859.32" y="4833.91"/>
+        <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.27" noise="65.15" route="!1" type="1" waiting="0.00" lane="-30528#28_0" pos="49.33" speed="14.72" angle="156.26" x="7859.32" y="4833.91"/>
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="4.09" noise="65.79" route="!10!var#1" type="1" waiting="0.00" lane="-31118#1_0" pos="14.16" speed="14.28" angle="272.38" x="4949.07" y="6055.91"/>
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.34" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#39_0" pos="436.77" speed="15.04" angle="157.31" x="8458.13" y="3596.29"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-7.68" noise="47.75" route="!6!var#1" type="1" waiting="0.00" lane="-31940#1_0" pos="79.57" speed="3.90" angle="285.23" x="5639.71" y="7466.60"/>
@@ -3116,7 +3116,7 @@
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="2.12" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#39_0" pos="572.11" speed="15.04" angle="140.58" x="8525.12" y="3479.38"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="8.00" lane="-31940#1_0" pos="80.47" speed="0.00" angle="285.23" x="5638.85" y="7466.84"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="7.81" noise="67.06" route="!8!var#1" type="1" waiting="0.00" lane="-31320#1_1" pos="11.42" speed="13.29" angle="92.46" x="6343.35" y="5633.90"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.44" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#6_0" pos="1566.19" speed="29.06" angle="158.16" x="3734.68" y="4774.17"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.32" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#6_0" pos="1566.19" speed="29.06" angle="158.16" x="3734.68" y="4774.17"/>
     </timestep>
     <timestep time="298.00">
         <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.34" noise="65.15" route="!1" type="1" waiting="0.00" lane="-30528#30_0" pos="103.35" speed="14.72" angle="161.47" x="7908.26" y="4695.37"/>
@@ -3124,7 +3124,7 @@
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.34" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#39_0" pos="587.15" speed="15.04" angle="140.58" x="8534.67" y="3467.76"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="9.00" lane="-31940#1_0" pos="80.47" speed="0.00" angle="285.23" x="5638.85" y="7466.84"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="8.36" noise="67.64" route="!8!var#1" type="1" waiting="0.00" lane="-31320#1_1" pos="25.71" speed="14.29" angle="92.46" x="6357.62" y="5633.29"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.44" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#6_0" pos="1595.25" speed="29.06" angle="158.16" x="3745.50" y="4747.16"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.32" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#6_0" pos="1595.25" speed="29.06" angle="158.16" x="3745.50" y="4747.16"/>
     </timestep>
     <timestep time="299.00">
         <vehicle id="1" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.29" noise="65.15" route="!1" type="1" waiting="0.00" lane="-30528#30_0" pos="118.07" speed="14.72" angle="161.47" x="7912.94" y="4681.41"/>
@@ -3665,7 +3665,7 @@
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-0.02" noise="54.08" route="!4" type="1" waiting="1.00" lane="-30528#42_0" pos="171.44" speed="0.00" angle="140.37" x="8896.82" y="2660.69"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.94" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31940#3_0" pos="285.11" speed="11.54" angle="284.81" x="5240.03" y="7571.24"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-8.87" noise="49.33" route="!8!var#1" type="1" waiting="0.00" lane="--31272#1_0" pos="108.13" speed="4.75" angle="99.45" x="7225.73" y="5499.65"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.32" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#9_0" pos="808.13" speed="29.06" angle="106.98" x="5223.53" y="3445.07"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.44" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#9_0" pos="808.13" speed="29.06" angle="106.98" x="5223.53" y="3445.07"/>
     </timestep>
     <timestep time="369.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.06" noise="63.15" route="!10!var#1" type="1" waiting="0.00" lane="--31496#5_0" pos="321.03" speed="11.90" angle="282.81" x="4069.89" y="6210.86"/>
@@ -3812,14 +3812,14 @@
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!4" type="1" waiting="22.00" lane="-30528#42_0" pos="171.44" speed="0.00" angle="140.37" x="8896.82" y="2660.69"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="10.00" lane="-31940#3_0" pos="391.37" speed="0.00" angle="285.99" x="5137.89" y="7600.48"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!8!var#1" type="1" waiting="20.00" lane="--31272#1_0" pos="109.88" speed="0.00" angle="99.45" x="7227.45" y="5499.36"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.32" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#10_0" pos="163.65" speed="29.06" angle="96.87" x="5823.70" y="3338.48"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.44" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#10_0" pos="163.65" speed="29.06" angle="96.87" x="5823.70" y="3338.48"/>
     </timestep>
     <timestep time="390.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!10!var#1" type="1" waiting="8.00" lane="--31496#5_0" pos="455.88" speed="0.00" angle="277.28" x="3937.51" y="6234.81"/>
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!4" type="1" waiting="23.00" lane="-30528#42_0" pos="171.44" speed="0.00" angle="140.37" x="8896.82" y="2660.69"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="11.00" lane="-31940#3_0" pos="391.37" speed="0.00" angle="285.99" x="5137.89" y="7600.48"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!8!var#1" type="1" waiting="21.00" lane="--31272#1_0" pos="109.88" speed="0.00" angle="99.45" x="7227.45" y="5499.36"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.32" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#10_0" pos="192.71" speed="29.06" angle="96.87" x="5852.55" y="3335.00"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="5.44" noise="73.44" route="!9!var#1" type="1" waiting="0.00" lane="-30668#10_0" pos="192.71" speed="29.06" angle="96.87" x="5852.55" y="3335.00"/>
     </timestep>
     <timestep time="391.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!10!var#1" type="1" waiting="9.00" lane="--31496#5_0" pos="455.88" speed="0.00" angle="277.28" x="3937.51" y="6234.81"/>
@@ -3938,14 +3938,14 @@
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!4" type="1" waiting="40.00" lane="-30528#42_0" pos="171.44" speed="0.00" angle="140.37" x="8896.82" y="2660.69"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="28.00" lane="-31940#3_0" pos="391.37" speed="0.00" angle="285.99" x="5137.89" y="7600.48"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!8!var#1" type="1" waiting="38.00" lane="--31272#1_0" pos="109.88" speed="0.00" angle="99.45" x="7227.45" y="5499.36"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.90" noise="67.46" route="!9!var#1" type="1" waiting="0.00" lane="-30908#0_0" pos="89.87" speed="18.23" angle="103.21" x="6233.34" y="3272.86"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.93" noise="67.46" route="!9!var#1" type="1" waiting="0.00" lane="-30908#0_0" pos="89.87" speed="18.23" angle="103.21" x="6233.34" y="3272.86"/>
     </timestep>
     <timestep time="408.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!10!var#1" type="1" waiting="26.00" lane="--31496#5_0" pos="455.88" speed="0.00" angle="277.28" x="3937.51" y="6234.81"/>
         <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!4" type="1" waiting="41.00" lane="-30528#42_0" pos="171.44" speed="0.00" angle="140.37" x="8896.82" y="2660.69"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="29.00" lane="-31940#3_0" pos="391.37" speed="0.00" angle="285.99" x="5137.89" y="7600.48"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!8!var#1" type="1" waiting="39.00" lane="--31272#1_0" pos="109.88" speed="0.00" angle="99.45" x="7227.45" y="5499.36"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.90" noise="67.46" route="!9!var#1" type="1" waiting="0.00" lane="-30908#0_0" pos="108.10" speed="18.23" angle="103.21" x="6251.09" y="3268.69"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.93" noise="67.46" route="!9!var#1" type="1" waiting="0.00" lane="-30908#0_0" pos="108.10" speed="18.23" angle="103.21" x="6251.09" y="3268.69"/>
     </timestep>
     <timestep time="409.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!10!var#1" type="1" waiting="27.00" lane="--31496#5_0" pos="455.88" speed="0.00" angle="277.28" x="3937.51" y="6234.81"/>
@@ -4208,14 +4208,14 @@
     </timestep>
     <timestep time="446.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.90" noise="63.15" route="!10!var#1" type="1" waiting="0.00" lane="--31496#3_0" pos="221.02" speed="11.90" angle="277.60" x="3580.10" y="6278.20"/>
-        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.34" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#46_0" pos="104.66" speed="15.04" angle="165.94" x="9205.14" y="2510.47"/>
+        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.32" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#46_0" pos="104.66" speed="15.04" angle="165.94" x="9205.14" y="2510.47"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="15.00" lane="-31940#4_0" pos="155.10" speed="0.00" angle="282.36" x="4976.43" y="7639.44"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!8!var#1" type="1" waiting="21.00" lane="--31272#0_0" pos="77.50" speed="0.00" angle="77.96" x="7325.22" y="5502.85"/>
         <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="7.00" noise="66.41" route="!9!var#1" type="1" waiting="0.00" lane="-30908#1_0" pos="57.01" speed="12.18" angle="110.37" x="6711.96" y="3130.80"/>
     </timestep>
     <timestep time="447.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.95" noise="63.15" route="!10!var#1" type="1" waiting="0.00" lane="--31496#3_0" pos="232.92" speed="11.90" angle="277.15" x="3568.40" y="6279.72"/>
-        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.34" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#46_0" pos="119.70" speed="15.04" angle="165.94" x="9208.80" y="2495.87"/>
+        <vehicle id="4" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.32" noise="65.36" route="!4" type="1" waiting="0.00" lane="-30528#46_0" pos="119.70" speed="15.04" angle="165.94" x="9208.80" y="2495.87"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="16.00" lane="-31940#4_0" pos="155.10" speed="0.00" angle="282.36" x="4976.43" y="7639.44"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!8!var#1" type="1" waiting="22.00" lane="--31272#0_0" pos="77.50" speed="0.00" angle="77.96" x="7325.22" y="5502.85"/>
         <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="7.64" noise="66.99" route="!9!var#1" type="1" waiting="0.00" lane="-30908#1_0" pos="70.19" speed="13.18" angle="110.37" x="6724.31" y="3126.21"/>
@@ -5256,7 +5256,7 @@
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.22" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#2_0" pos="14.80" speed="14.28" angle="264.22" x="1929.99" y="7235.50"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="3.55" noise="62.99" route="!6!var#1" type="1" waiting="0.00" lane="-30924#4_0" pos="6.56" speed="6.05" angle="250.56" x="3771.92" y="7976.98"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-4.44" noise="59.29" route="!8!var#1" type="1" waiting="0.00" lane="-31888#1_0" pos="196.69" speed="9.92" angle="178.22" x="7793.67" y="4433.45"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.42" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="441.06" speed="15.63" angle="129.81" x="7866.94" y="2745.28"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.44" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="441.06" speed="15.63" angle="129.81" x="7866.94" y="2745.28"/>
     </timestep>
     <timestep time="607.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.85" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#2_0" pos="29.09" speed="14.28" angle="260.77" x="1915.80" y="7233.60"/>
@@ -5274,13 +5274,13 @@
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="2.30" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#2_0" pos="57.66" speed="14.28" angle="254.84" x="1887.70" y="7228.13"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="6.46" noise="64.61" route="!6!var#1" type="1" waiting="0.00" lane=":-24490_0_0" pos="3.64" speed="9.05" angle="203.50" x="3754.83" y="7961.75"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-3.22" noise="56.40" route="!8!var#1" type="1" waiting="0.00" lane="-31888#1_0" pos="220.46" speed="6.92" angle="178.22" x="7794.41" y="4409.69"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.42" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="487.96" speed="15.63" angle="125.89" x="7903.94" y="2716.48"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.44" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="487.96" speed="15.63" angle="125.89" x="7903.94" y="2716.48"/>
     </timestep>
     <timestep time="610.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.22" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#2_0" pos="71.94" speed="14.28" angle="254.84" x="1873.87" y="7224.38"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="12.84" noise="65.18" route="!6!var#1" type="1" waiting="0.00" lane="-31768#0_0" pos="4.40" speed="10.05" angle="282.15" x="3747.74" y="7962.11"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-2.79" noise="55.46" route="!8!var#1" type="1" waiting="0.00" lane="-31888#1_0" pos="226.39" speed="5.92" angle="178.22" x="7794.59" y="4403.77"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.42" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="503.60" speed="15.63" angle="125.89" x="7916.61" y="2707.31"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.44" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="503.60" speed="15.63" angle="125.89" x="7916.61" y="2707.31"/>
     </timestep>
     <timestep time="611.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.22" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#2_0" pos="86.23" speed="14.28" angle="254.84" x="1860.04" y="7220.63"/>
@@ -5304,13 +5304,13 @@
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.21" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#3_0" pos="32.90" speed="14.28" angle="254.69" x="1818.76" y="7209.35"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.05" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#0_0" pos="50.08" speed="11.54" angle="284.18" x="3703.15" y="7971.90"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="2.02" noise="61.96" route="!8!var#1" type="1" waiting="0.00" lane=":-25072_6_0" pos="0.97" speed="3.92" angle="179.02" x="7795.01" y="4388.08"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.44" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="566.13" speed="15.63" angle="122.15" x="7969.05" y="2673.26"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.42" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="566.13" speed="15.63" angle="122.15" x="7969.05" y="2673.26"/>
     </timestep>
     <timestep time="615.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="2.49" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#3_0" pos="47.19" speed="14.28" angle="261.65" x="1804.88" y="7206.18"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.88" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#0_0" pos="61.62" speed="11.54" angle="284.41" x="3691.98" y="7974.76"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="2.91" noise="62.43" route="!8!var#1" type="1" waiting="0.00" lane=":-25072_6_0" pos="5.90" speed="4.92" angle="193.53" x="7793.86" y="4383.36"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.42" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="581.77" speed="15.63" angle="122.15" x="7982.29" y="2664.94"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.44" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="581.77" speed="15.63" angle="122.15" x="7982.29" y="2664.94"/>
     </timestep>
     <timestep time="616.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.21" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#3_0" pos="61.47" speed="14.28" angle="261.65" x="1790.77" y="7204.11"/>
@@ -5322,7 +5322,7 @@
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="2.03" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#3_0" pos="75.75" speed="14.28" angle="266.12" x="1776.57" y="7202.96"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.05" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#0_0" pos="84.71" speed="11.54" angle="286.02" x="3669.70" y="7980.76"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="3.86" noise="63.45" route="!8!var#1" type="1" waiting="0.00" lane="--30496#3_1" pos="10.64" speed="6.92" angle="233.73" x="7785.81" y="4372.76"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.44" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="613.04" speed="15.63" angle="122.15" x="8008.77" y="2648.30"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.42" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31794#0_0" pos="613.04" speed="15.63" angle="122.15" x="8008.77" y="2648.30"/>
     </timestep>
     <timestep time="618.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.21" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#3_0" pos="90.04" speed="14.28" angle="266.12" x="1762.34" y="7202.00"/>
@@ -5388,7 +5388,7 @@
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.22" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#4_0" pos="76.41" speed="14.28" angle="257.55" x="1621.50" y="7179.52"/>
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.86" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#0_0" pos="211.68" speed="11.54" angle="285.73" x="3547.58" y="8015.25"/>
         <vehicle id="8" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-12.93" noise="54.17" route="!8!var#1" type="1" waiting="0.00" lane="--30496#3_1" pos="127.78" speed="7.65" angle="226.61" x="7694.29" y="4300.11"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-14.98" noise="56.25" route="!9!var#1" type="1" waiting="0.00" lane="-31794#1_0" pos="97.99" speed="9.13" angle="125.76" x="8141.27" y="2556.17"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="-14.99" noise="56.25" route="!9!var#1" type="1" waiting="0.00" lane="-31794#1_0" pos="97.99" speed="9.13" angle="125.76" x="8141.27" y="2556.17"/>
     </timestep>
     <timestep time="629.00">
         <vehicle id="10" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.21" noise="64.84" route="!10!var#1" type="1" waiting="0.00" lane="-30404#4_0" pos="90.70" speed="14.28" angle="257.55" x="1607.55" y="7176.44"/>
@@ -6016,7 +6016,7 @@
     </timestep>
     <timestep time="746.00">
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="28.00" lane="-31768#3_0" pos="398.42" speed="0.00" angle="284.31" x="2564.24" y="8268.72"/>
-        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.42" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31034#2_0" pos="28.21" speed="15.63" angle="189.66" x="8674.93" y="1785.88"/>
+        <vehicle id="9" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="1.44" noise="65.77" route="!9!var#1" type="1" waiting="0.00" lane="-31034#2_0" pos="28.21" speed="15.63" angle="189.66" x="8674.93" y="1785.88"/>
     </timestep>
     <timestep time="747.00">
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.03" noise="55.94" route="!6!var#1" type="1" waiting="29.00" lane="-31768#3_0" pos="398.42" speed="0.00" angle="284.31" x="2564.24" y="8268.72"/>
@@ -6359,7 +6359,7 @@
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.86" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#7_0" pos="262.87" speed="11.54" angle="271.30" x="1838.73" y="8396.37"/>
     </timestep>
     <timestep time="849.00">
-        <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.85" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#7_0" pos="274.41" speed="11.54" angle="271.30" x="1827.17" y="8396.63"/>
+        <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.86" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#7_0" pos="274.41" speed="11.54" angle="271.30" x="1827.17" y="8396.63"/>
     </timestep>
     <timestep time="850.00">
         <vehicle id="6" eclass="Energy/default" CO2="0.00" CO="0.00" HC="0.00" NOx="0.00" PMx="0.00" fuel="0.00" electricity="0.99" noise="62.89" route="!6!var#1" type="1" waiting="0.00" lane="-31768#7_0" pos="285.95" speed="11.54" angle="270.19" x="1815.62" y="8396.80"/>
