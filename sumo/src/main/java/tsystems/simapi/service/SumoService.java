@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import tsystems.simapi.component.SumoFileGateway;
 import tsystems.simapi.entity.SumoXMLObject;
 import tsystems.simapi.entity.releaseinfo.EcuDatas;
@@ -184,4 +185,15 @@ public class SumoService {
         headers.setContentType(MediaType.IMAGE_PNG);
         return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
     }
+
+       public boolean updateStatus(boolean status, String id) {
+
+           RestTemplate restTemplate = new RestTemplate();
+
+           ResponseEntity<Boolean> response = restTemplate.getForEntity("localhost:8083/update/" + id + "?status=" + status, Boolean.class);
+
+           System.out.println("Response: " + response.getBody());
+        return status;
+    }
+
 }

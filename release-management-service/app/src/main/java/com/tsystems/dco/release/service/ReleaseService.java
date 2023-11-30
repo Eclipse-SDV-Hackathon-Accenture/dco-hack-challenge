@@ -29,6 +29,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.*;
@@ -362,4 +363,11 @@ public class ReleaseService {
     else throw new IdNotFoundException(HttpStatus.NOT_FOUND, "Release ID not Found");
   }
 
+    public Boolean updateStatus(String releaseId, Boolean status) {
+      ReleaseEntity existingRelease = releaseRepository.findById(releaseId)
+        .orElseThrow(() -> new EntityNotFoundException("Release with id " + releaseId + " not found"));
+      existingRelease.setReleaseStatus(status ? "READY_FOR_RELEASE" : "FAILED\n");
+      releaseRepository.save(existingRelease);
+      return true;
+    }
 }

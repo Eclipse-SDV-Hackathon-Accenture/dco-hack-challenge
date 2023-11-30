@@ -40,7 +40,9 @@ public class SumoController {
     public Boolean runSimulationWithArgs(@Valid @RequestBody ReleaseInfo releaseInfo){
         sumoService.adjustBatteryToTemperature(releaseInfo);
         sumoService.configureSumo(releaseInfo);
-        return sumoService.runSimulation(releaseInfo.getReleaseId());
+        boolean status = sumoService.runSimulation(releaseInfo.getReleaseId());
+        sumoService.updateStatus(status, releaseInfo.getReleaseId());
+        return status;
     }
 
     @GetMapping("/{releaseId}")
