@@ -38,8 +38,8 @@ mvn clean install
 After building the application and having the side running services started with docker-compose the application can be started with the following commands.
 
 ```bash
-mvn --file ./app-database/pom.xml spring-boot:run
-mvn --file ./app/pom.xml spring-boot:run
+mvn --file ./app-database/bom.xml spring-boot:run
+mvn --file ./app/bom.xml spring-boot:run
 ```
 
 ## release

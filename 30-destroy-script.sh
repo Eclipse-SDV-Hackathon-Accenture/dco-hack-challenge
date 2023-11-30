@@ -1,5 +1,4 @@
 #!/bin/bash
-
 docker compose down --remove-orphans
 # shellcheck disable=SC2164
 cd minio

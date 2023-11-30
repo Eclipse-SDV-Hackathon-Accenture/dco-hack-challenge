@@ -235,24 +235,6 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <configuration>
-          <failOnError>false</failOnError>
-          <outputEncoding>UTF-8</outputEncoding>
-          <xmlOutput>true</xmlOutput>
-        </configuration>
-        <executions>
-          <execution>
-            <id>check</id>
-            <phase>package</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <executions>

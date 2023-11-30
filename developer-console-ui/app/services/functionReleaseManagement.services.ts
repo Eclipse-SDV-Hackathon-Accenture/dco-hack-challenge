@@ -216,7 +216,11 @@ export const handleNewReleaseSubmitInService = async (
         componentVersion: string,
         status: string,
         lastChange: string,
-        actualBatteryCapacity: string,
+        data: {
+            actualBatteryCapacity: string,
+            minTemperature: string,
+            maxTemperature: string
+        }
     }>,
     releaseDate: string,
     releaseStatus: string,
@@ -231,7 +235,7 @@ export const handleNewReleaseSubmitInService = async (
         brands: [brands],
         countries: [countries],
         models: [models],
-        functions: [{name, ecuDatas}],
+        functions: [{ name, ecuDatas }],
         releaseDate,
         releaseStatus,
     };

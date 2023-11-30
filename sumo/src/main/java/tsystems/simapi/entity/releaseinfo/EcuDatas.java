@@ -7,6 +7,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class EcuDatas {
     private String ecu;
     private String hardwareVersion;

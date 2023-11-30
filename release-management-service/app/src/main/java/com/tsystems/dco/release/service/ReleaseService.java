@@ -21,14 +21,6 @@ import com.tsystems.dco.release.model.*;
 import com.tsystems.dco.release.repository.QualityGateWithApproversRepository;
 import com.tsystems.dco.release.repository.ReleaseRepository;
 import com.tsystems.dco.release.repository.TrackCampaignRepository;
-import com.tsystems.dco.tm.integration.tminterface.client.TaskManagerServiceApiClient;
-import com.tsystems.dco.tm.integration.tminterface.domain.WorkFlowRequest;
-import com.tsystems.dco.tm.integration.workflowregistry.client.TaskManagerWorkflowRegistryServiceApiClient;
-import com.tsystems.dco.tm.integration.workflowregistry.domain.Definition;
-import com.tsystems.dco.tm.integration.workflowregistry.domain.State;
-import com.tsystems.dco.tm.integration.workflowregistry.domain.Action;
-import com.tsystems.dco.tm.integration.workflowregistry.domain.Function;
-import com.tsystems.dco.tm.integration.workflowregistry.domain.WorkflowDefinitionRequest;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -37,6 +29,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.*;
@@ -62,9 +55,6 @@ public class ReleaseService {
   private final QualityGateWithApproversRepository qualityGateWithApproversRepository;
   private final TrackCampaignRepository trackCampaignRepository;
   private final TrackApiClient trackApiClient;
-  private final TaskManagerWorkflowRegistryServiceApiClient workflowRegistryApiClient;
-  private final TaskManagerServiceApiClient taskManagerServiceApiClient;
-
   /**
    * @param input
    * @return String
@@ -244,23 +234,6 @@ public class ReleaseService {
   /**
    * @return BrandModelCountryResponse
    */
-  public BrandModelCountry getBrandModelCountryList() {
-    List<String> mercedesModels = Arrays.asList("A class", "B class", "C class", "E class");
-    List<String> hyperModels = Arrays.asList("H1", "H2", "H3", "H5");
-    List<String> audiModels = Arrays.asList("A1", "A2", "A3", "A4", "A5");
-    List<String> bmwModels = Arrays.asList("1 series", "2 series", "3 series", "4 series", "5 series");
-
-    BrandModel mercedes = BrandModel.builder().name("Mercedes").models(mercedesModels).build();
-    BrandModel hyper = BrandModel.builder().name("Hyper.Car").models(hyperModels).build();
-    BrandModel audi = BrandModel.builder().name("Audi").models(audiModels).build();
-    BrandModel bmw = BrandModel.builder().name("BMW").models(bmwModels).build();
-
-    List<BrandModel> brands = Arrays.asList(hyper, mercedes, audi, bmw);
-
-    List<String> countries = Arrays.asList("Austria", "Belgium", "Brazil", "China", "Denmark", "France", "Switzerland", "United Kingdom", "United States", "Germany", "Italy");
-
-    return BrandModelCountry.builder().brands(brands).countries(countries).build();
-  }
 
   /**
    * @return List<String>
@@ -292,36 +265,6 @@ public class ReleaseService {
     Optional<ReleaseEntity> optionalRelease = releaseRepository.findById(releaseId);
     if (optionalRelease.isPresent()) return ReleaseMapper.INSTANCE.toModel(optionalRelease.get());
     else throw new IdNotFoundException(HttpStatus.NOT_FOUND, "Release ID not Found");
-  }
-
-  public List<FunctionDataSet> getFunctionDataSet() {
-    List<String> bcs = Arrays.asList("Thermal Management", "Fast/slow Charging", "Sleep Mode Controller");
-    List<String> bcm = List.of("Firmware");
-    List<String> tcu = Arrays.asList("Modem", "Amplifier", "GNSS", "eSIM");
-    List<String> ivi = List.of("Regional Settings");
-    List<String> hud = List.of("Beamer");
-
-    EcuDataSet bcs101 = EcuDataSet.builder().ecu("BCS-10-B1X").hardwares(bcs).build();
-    EcuDataSet bcs102 = EcuDataSet.builder().ecu("BCS-10-B2X").hardwares(bcs).build();
-    EcuDataSet bcs0 = EcuDataSet.builder().ecu("BCS-00-B2X").hardwares(bcs).build();
-    EcuDataSet bcm0 = EcuDataSet.builder().ecu("BCS-10-B1X").hardwares(bcm).build();
-    EcuDataSet tcu0 = EcuDataSet.builder().ecu("TCU-00-V2X").hardwares(tcu).build();
-    EcuDataSet ivi0 = EcuDataSet.builder().ecu("IVI-00-S1A").hardwares(ivi).build();
-    EcuDataSet hud0 = EcuDataSet.builder().ecu("HUD-00-H2X").hardwares(hud).build();
-
-    List<EcuDataSet> chargingSets = Arrays.asList(bcs101, bcs102);
-    List<EcuDataSet> plugChargeSets = Collections.singletonList(bcs0);
-    List<EcuDataSet> parkingSets = Arrays.asList(bcm0, tcu0);
-    List<EcuDataSet> inCarSets = Collections.singletonList(ivi0);
-    List<EcuDataSet> acSets = Collections.singletonList(hud0);
-
-    FunctionDataSet chargingFunction = FunctionDataSet.builder().name("Charging").ecus(chargingSets).build();
-    FunctionDataSet plugChargeFunction = FunctionDataSet.builder().name("Plug and Charge").ecus(plugChargeSets).build();
-    FunctionDataSet parkingFunction = FunctionDataSet.builder().name("Automated Parking").ecus(parkingSets).build();
-    FunctionDataSet inCarFunction = FunctionDataSet.builder().name("In Car Shop").ecus(inCarSets).build();
-    FunctionDataSet acFunction = FunctionDataSet.builder().name("Air Conditioner ").ecus(acSets).build();
-
-    return Arrays.asList(chargingFunction, plugChargeFunction, parkingFunction, inCarFunction, acFunction);
   }
 
   /**
@@ -408,82 +351,7 @@ public class ReleaseService {
     }
   }
 
-  /**
-   * @param workflowDefinition
-   * @return
-   */
-  public String createWorkflowDefinition(WorkflowDefinition workflowDefinition) {
-    WorkflowDefinitionRequest workflowDefinitionRequest = new WorkflowDefinitionRequest();
-    Definition definition = new Definition();
-    List<State> state = new ArrayList();
-    List<Action> action = new ArrayList<>();
-    List<Function> functions = new ArrayList<>();
 
-    /*Hard code data start*/
-    Action actions = new Action("QualityGates QA-action", "QualityGates QA-function");
-    action.add(actions);
-
-    Function func = new Function("custom", "QualityGates QA-function", "release-management-service.qualityGates");
-    functions.add(func);
-
-    State states = new State("QualityGates QA", "operation", action, true);
-    state.add(states);
-
-    definition.setId(workflowDefinition.getType());
-    definition.setName(workflowDefinition.getType());
-    definition.setVersion("1.0");
-    definition.setSpecVersion("0.8");
-    definition.setStart("QualityGates QA");
-
-    /*Hard code data end */
-    definition.setStates(state);
-    definition.setFunctions(functions);
-    workflowDefinitionRequest.setDefinition(definition);
-    workflowDefinitionRequest.setNamespace(workflowDefinition.getNamespace());
-    workflowDefinitionRequest.setType(workflowDefinition.getType());
-    workflowDefinitionRequest.setDescription(workflowDefinition.getDescription());
-    workflowRegistryApiClient.createWorkflowRegistry(workflowDefinitionRequest);
-    return workflowDefinition.getNamespace() + "." + workflowDefinition.getType();
-
-  }
-
-  /**
-   * @param id
-   * @return definition by id
-   */
-  public DefinitionResponse getWorkflowDefinitionById(String id) {
-    var workflowDefinitionRequest = workflowRegistryApiClient.getWorkflowDefinitionById(id).getBody();
-      return ReleaseMapper.INSTANCE.toEntity(workflowDefinitionRequest);
-  }
-
-  /**
-   * @return list of all definitions
-   */
-  public List<DefinitionResponse> getAllWorkflowDefinition() {
-      var workflowDefinitionRequest = workflowRegistryApiClient.getAllWorkflowDefinition().getBody();
-      if(workflowDefinitionRequest ==null ){
-        throw new IdNotFoundException(HttpStatus.NOT_FOUND, "No Workflow definition found");
-      }
-      var allWorkflowDefinitionRequest = workflowDefinitionRequest.
-        stream().filter(x -> x.getNamespace().equals("DCO")).toList();
-      return ReleaseMapper.INSTANCE.toEntity(allWorkflowDefinitionRequest);
-  }
-
-  /**
-   * @param qualityGateRequest
-   * @return
-   */
-  @Transactional
-  public String createQualityGateWithApprovers(CreateQualityGateWithApprovers qualityGateRequest) {
-    WorkFlowRequest workFlowRequest = new WorkFlowRequest();
-    workFlowRequest.setNamespace("DCO");
-    workFlowRequest.setTaskQueue("release-management-service");
-    workFlowRequest.setWorkflowType("quality-gate-execution");
-    workFlowRequest.setPayload(qualityGateRequest);
-    ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-    ResponseEntity<String> responseEntity = taskManagerServiceApiClient.createWorkflow(workFlowRequest);
-    return responseEntity.getBody();
-  }
 
   @Transactional
   public Release deleteReleaseById(String releaseId) {
@@ -495,4 +363,11 @@ public class ReleaseService {
     else throw new IdNotFoundException(HttpStatus.NOT_FOUND, "Release ID not Found");
   }
 
+    public Boolean updateStatus(String releaseId, Boolean status) {
+      ReleaseEntity existingRelease = releaseRepository.findById(releaseId)
+        .orElseThrow(() -> new EntityNotFoundException("Release with id " + releaseId + " not found"));
+      existingRelease.setReleaseStatus(status ? "READY_FOR_RELEASE" : "FAILED\n");
+      releaseRepository.save(existingRelease);
+      return true;
+    }
 }

@@ -1,12 +1,12 @@
 <routes>
     <vehicle id="1" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -18,12 +18,12 @@
     </vehicle>
     <vehicle id="2" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -35,12 +35,12 @@
     </vehicle>
     <vehicle id="3" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -52,12 +52,12 @@
     </vehicle>
     <vehicle id="4" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -69,12 +69,12 @@
     </vehicle>
     <vehicle id="5" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
     <param key="device.battery.probability" value="1"/>
-    <param key="actualBatteryCapacity" value="500"/>
+    <param key="device.battery.chargeLevel" value="500"/>
     <param key="airDragCoefficient" value="0.35"/>
     <param key="constantPowerIntake" value="100"/>
     <param key="frontSurfaceArea" value="2.6"/>
     <param key="internalMomentOfInertia" value="0.01"/>
-    <param key="maximumBatteryCapacity" value="64000"/>
+    <param key="device.battery.capacity" value="64000"/>
     <param key="maximumPower" value="150000"/>
     <param key="propulsionEfficiency" value=".98"/>
     <param key="radialDragCoefficient" value="0.1"/>
@@ -86,12 +86,12 @@
 </vehicle>
     <vehicle id="6" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -103,12 +103,12 @@
     </vehicle>
     <vehicle id="7" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -120,12 +120,12 @@
     </vehicle>
     <vehicle id="8" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -137,12 +137,12 @@
     </vehicle>
     <vehicle id="9" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>
@@ -154,12 +154,12 @@
     </vehicle>
     <vehicle id="10" type="1" depart="0.00" departPos="random" departSpeed="1.00" arrivalPos="random" arrivalSpeed="0.00">
         <param key="device.battery.probability" value="1"/>
-        <param key="actualBatteryCapacity" value="500"/>
+        <param key="device.battery.chargeLevel" value="500"/>
         <param key="airDragCoefficient" value="0.35"/>
         <param key="constantPowerIntake" value="100"/>
         <param key="frontSurfaceArea" value="2.6"/>
         <param key="internalMomentOfInertia" value="0.01"/>
-        <param key="maximumBatteryCapacity" value="64000"/>
+        <param key="device.battery.capacity" value="64000"/>
         <param key="maximumPower" value="150000"/>
         <param key="propulsionEfficiency" value=".98"/>
         <param key="radialDragCoefficient" value="0.1"/>

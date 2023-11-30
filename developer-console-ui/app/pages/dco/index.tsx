@@ -83,6 +83,9 @@ const Dco = ({ children }: any) => {
                   <ActiveLink href={checkRoute('/dco/release_management', router, pathname)}>
                     <NavigationBarItem>release management</NavigationBarItem>
                   </ActiveLink>
+                  <ActiveLink href={checkRoute('/dco/monitoring', router, pathname)}>
+                    <NavigationBarItem>monitoring</NavigationBarItem>
+                  </ActiveLink>
                 </NavigationBar>
               </Flex.Item>
               {/* RIGHT */}
@@ -114,8 +117,6 @@ const Dco = ({ children }: any) => {
                         <Flex.Item valign='center'>     <StatusMessage noIcon variant='secondary' >to login again
                         </StatusMessage></Flex.Item>
                       </Flex>
-
-
                     </Box>
                   </Flex.Item>
                 </Flex>
