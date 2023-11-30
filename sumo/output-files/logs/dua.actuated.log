@@ -1,17 +1,17 @@
-Loading net-file from 'sumo_scenario/lust.net.xml' ... done (423ms).
-Loading additional-files from 'sumo_scenario/vtypes.add.xml' ... done (1ms).
+Loading net-file from 'sumo_scenario/lust.net.xml' ... done (676ms).
+Loading additional-files from 'sumo_scenario/vtypes.add.xml' ... done (5ms).
 Loading done.
 Simulation version v1_19_0+0260-f25044b3d77 started with time: 0.00.
 Simulation ended at time: 868.00
 Reason: All vehicles have left the simulation.
 Performance: 
- Duration: 0.32s
- Real time factor: 2704.05
- UPS: 14420.560748
+ Duration: 0.68s
+ Real time factor: 1269.01
+ UPS: 6767.543860
 Vehicles: 
  Inserted: 10
  Running: 0
  Waiting: 0
 
 DijkstraRouter answered 16 queries and explored 1935.19 edges on average.
-DijkstraRouter spent 0.02s answering queries (0.94ms on average).
+DijkstraRouter spent 0.03s answering queries (1.75ms on average).
