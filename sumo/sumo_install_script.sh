@@ -1,4 +1,7 @@
 #!/bin/bash
+while ! apt-get update; do
+  sleep 1
+done
 pwd
 echo >> ~/.bashrc SUMO_HOME="/sumo"
 echo >> ~/.bashrc PATH="$SUMO_HOME/bin:$PATH"
@@ -19,7 +22,8 @@ apt-get update && apt-get install -y \
   swig \
   openjdk-17-jdk \
   maven \
-  libeigen3-dev
+  libeigen3-dev \
+  python3-lxml
 
 pip3 install matplotlib
 pip3 install sumolib

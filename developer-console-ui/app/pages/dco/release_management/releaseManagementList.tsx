@@ -78,13 +78,13 @@ const ReleaseManagementList = ({path}: any) => {
                 }
             }
         },
-        {
-            Header: '',
-            accessor: 'menu',
-            formatter: (value: any, cell: any) => {
-                return (<LaunchButton releaseID={cell.row.values.releaseId}></LaunchButton>)
-            }
-        },
+        // {
+        //     Header: '',
+        //     accessor: 'menu',
+        //     formatter: (value: any, cell: any) => {
+        //         return (<LaunchButton releaseID={cell.row.values.releaseId}></LaunchButton>)
+        //     }
+        // },
         {
             Header: '',
             accessor: 'delete',

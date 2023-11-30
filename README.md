@@ -14,7 +14,7 @@ Eclipse Developer Console UI
 ![grafik](docs/images/DCO-UI_2.png)
 
 Eclipse SUMO
-![screenshot2](https://github.com/Eclipse-SDV-Hackathon-Accenture/dco-hack-challenge/assets/39406862/50b4c7c2-1afa-44ab-a2c2-409547eaad70)
+![screenshot2](https://github.com/Eclipse-SDV-Hackathon-Accenture/dco-hack-challenge/assets/39406862/72d77ab4-71a0-4f75-b909-f9a2f06dc5f7)
 
 Architecture
 ![grafik](docs/images/DCO-eclipse_v2.svg "System Diagram: Eclipse Developer Console DCO")

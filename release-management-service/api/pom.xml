@@ -17,26 +17,45 @@
     <cyclonedx.skip>true</cyclonedx.skip>
     <dependency-track.skip>true</dependency-track.skip>
   </properties>
+  <name>Archetype - api</name>
+  <url>http://maven.apache.org</url>
 
   <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
-      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>1.6.11</version>
     </dependency>
     <dependency>
       <groupId>com.github.spotbugs</groupId>
       <artifactId>spotbugs-annotations</artifactId>
       <version>4.7.3</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
     </dependency>
   </dependencies>
 
@@ -47,16 +66,16 @@
         <artifactId>openapi-generator-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>openapi-release</id>
+            <id>openapi-vehicle</id>
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
               <inputSpec>${project.basedir}/openapi/openapi-release.yml</inputSpec>
               <generatorName>spring</generatorName>
-              <packageName>com.tsystems.dco.release</packageName>
-              <invokerPackage>com.tsystems.dco.release</invokerPackage>
-              <apiPackage>com.tsystems.dco.release.api</apiPackage>
+              <packageName>com.tsystems.rm</packageName>
+              <invokerPackage>com.tsystems.rm</invokerPackage>
+              <apiPackage>com.tsystems.rm.api</apiPackage>
               <modelPackage>com.tsystems.dco.release.model</modelPackage>
               <generateSupportingFiles>false</generateSupportingFiles>
               <typeMappings>
@@ -72,8 +91,7 @@
                 <skipDefaultInterface>true</skipDefaultInterface>
                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
                 <openApiNullable>false</openApiNullable>
-                <!--suppress UnresolvedMavenProperty -->
-                <additionalModelTypeAnnotations>@lombok.Builder @lombok.NoArgsConstructor @lombok.AllArgsConstructor</additionalModelTypeAnnotations>
+                <useJakartaEe>true</useJakartaEe>
               </configOptions>
             </configuration>
           </execution>
@@ -85,25 +103,6 @@
         <configuration>
           <excludeFilterFile>${project.basedir}/spotbugs-exclude.xml</excludeFilterFile>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>report</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

@@ -195,17 +195,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.tsystems.tm</groupId>
-      <artifactId>task-management-sdk</artifactId>
-      <version>1.14.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.tsystems.tm</groupId>
-      <artifactId>task-management-testing</artifactId>
-      <version>1.14.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
       <version>5.3.21</version>
@@ -233,7 +222,6 @@
       <artifactId>jakarta.persistence-api</artifactId>
     </dependency>
   </dependencies>
-
   <build>
     <resources>
       <resource>

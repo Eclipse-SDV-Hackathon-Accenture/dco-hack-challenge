@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-11-30 08:46:11 by Eclipse SUMO sumo Version v1_19_0+0260-f25044b3d77
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="sumo_scenario/lust.net.xml"/>
+        <route-files value="sumo_scenario/routes.xml"/>
+        <additional-files value="sumo_scenario/vtypes.add.xml"/>
+    </input>
+
+    <output>
+        <emission-output value="output-files/outputs/emissions.xml"/>
+        <battery-output value="sumo_scenario/Battery.out.xml"/>
+        <battery-output.precision value="4"/>
+        <fcd-output value="output-files/outputs/vehicle-trajectories.xml"/>
+        <summary-output value="sumo_scenario/dua.actuated.summary.xml"/>
+        <tripinfo-output value="sumo_scenario/dua.actuated.tripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <step-length value="1"/>
+    </time>
+
+    <processing>
+        <ignore-junction-blocker value="20"/>
+        <time-to-teleport value="600"/>
+        <max-depart-delay value="600"/>
+    </processing>
+
+    <routing>
+        <routing-algorithm value="dijkstra"/>
+        <device.rerouting.probability value="0.70"/>
+        <device.rerouting.period value="300"/>
+        <device.rerouting.pre-period value="300"/>
+    </routing>
+
+    <report>
+        <verbose value="true"/>
+        <log value="sumo_scenario/dua.actuated.log"/>
+    </report>
+
+    <battery>
+        <device.battery.probability value="1"/>
+    </battery>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="1" depart="0.00" departLane="-31606#0_0" departPos="13.12" departSpeed="1.00" departDelay="0.00" arrival="350.00" arrivalLane="-30496#4_1" arrivalPos="97.49" arrivalSpeed="1.02" duration="350.00" routeLength="3046.48" waitingTime="69.00" waitingCount="2" stopTime="0.00" timeLoss="144.64" rerouteNo="0" devices="tripinfo_1 emissions_1 battery_1 fcd_1" vType="1" speedFactor="1.06" vaporized="">
+        <emissions CO_abs="0" CO2_abs="0" HC_abs="0" PMx_abs="0" NOx_abs="0" fuel_abs="0" electricity_abs="436.037161"/>
+    </tripinfo>
+    <tripinfo id="3" depart="0.00" departLane="-31606#0_0" departPos="74.45" departSpeed="1.00" departDelay="0.00" arrival="356.00" arrivalLane="-30496#4_1" arrivalPos="64.55" arrivalSpeed="0.98" duration="356.00" routeLength="2952.20" waitingTime="68.00" waitingCount="3" stopTime="0.00" timeLoss="147.23" rerouteNo="0" devices="tripinfo_3 routing_3 emissions_3 battery_3 fcd_3" vType="1" speedFactor="1.01" vaporized="">
+        <emissions CO_abs="0" CO2_abs="0" HC_abs="0" PMx_abs="0" NOx_abs="0" fuel_abs="0" electricity_abs="399.746677"/>
+    </tripinfo>
+    <tripinfo id="2" depart="0.00" departLane="-31606#0_0" departPos="223.59" departSpeed="1.00" departDelay="0.00" arrival="360.00" arrivalLane="-30496#4_0" arrivalPos="53.77" arrivalSpeed="0.86" duration="360.00" routeLength="2792.29" waitingTime="86.00" waitingCount="2" stopTime="0.00" timeLoss="147.53" rerouteNo="0" devices="tripinfo_2 routing_2 emissions_2 battery_2 fcd_2" vType="1" speedFactor="0.94" vaporized="">
+        <emissions CO_abs="0" CO2_abs="0" HC_abs="0" PMx_abs="0" NOx_abs="0" fuel_abs="0" electricity_abs="356.856030"/>
+    </tripinfo>
+</tripinfos>

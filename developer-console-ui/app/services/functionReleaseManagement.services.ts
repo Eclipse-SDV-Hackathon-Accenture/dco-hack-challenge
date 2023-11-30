@@ -7,6 +7,8 @@ interface EcuData {
     status: string;
     lastChange: string;
     actualBatteryCapacity: string;
+    maxTemperature: string;
+    minTemperature: string
 }
 
 interface FunctionData {
@@ -29,6 +31,8 @@ interface ReleaseData {
 
 interface SUMOdata {
     actualBatteryCapacity: string;
+    maxTemperature: string;
+    minTemperature: string
 }
 
 interface EcuSUMOData {
@@ -71,6 +75,8 @@ function convertReleaseDataToSUMOData(input: ReleaseData): ReleaseSUMOData {
         lastChange: ecuData.lastChange,
         data: {
             actualBatteryCapacity: ecuData.actualBatteryCapacity,
+            maxTemperature: ecuData.maxTemperature,
+            minTemperature: ecuData.minTemperature
         },
     });
 
@@ -153,8 +159,9 @@ export const createReleaseData = async (newRelease: any) => {
     })
         .then((res) => res.json())
         .then((result) => result)
+        .then(() => launchReleaseData(newRelease.releaseId))
         .catch((error) => {
-            console.log('Error fetching data:::', error.message)
+            console.log('Error create release and trigger sumo :::', error.message)
         })
 }
 
@@ -215,8 +222,10 @@ export const handleNewReleaseSubmitInService = async (
         componentName: string,
         componentVersion: string,
         status: string,
-        lastChange: string,
+        lastChange: string;
         actualBatteryCapacity: string,
+        minTemperature: string,
+        maxTemperature: string
     }>,
     releaseDate: string,
     releaseStatus: string,
@@ -231,7 +240,7 @@ export const handleNewReleaseSubmitInService = async (
         brands: [brands],
         countries: [countries],
         models: [models],
-        functions: [{name, ecuDatas}],
+        functions: [{ name, ecuDatas }],
         releaseDate,
         releaseStatus,
     };
@@ -267,6 +276,8 @@ const mockReleaseData: ReleaseData = {
                     status: 'string',
                     lastChange: 'string',
                     actualBatteryCapacity: 'string',
+                    maxTemperature: 'string',
+                    minTemperature: 'string'
                 },
             ],
         },
