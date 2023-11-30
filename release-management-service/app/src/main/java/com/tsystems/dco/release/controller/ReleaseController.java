@@ -10,8 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -20,6 +21,14 @@ public class ReleaseController implements ReleaseApi {
 
   private static final Logger logger = LoggerFactory.getLogger(ReleaseController.class);
   private final ReleaseService releaseService;
+
+
+
+  @GetMapping("/{releaseId}")
+  public Boolean getImagesByReleaseId(@PathVariable String releaseId,
+                                      @RequestParam(name = "status", required = false) Boolean status) throws IOException {
+    return releaseService.updateStatus(releaseId, status);
+  }
 
   @Override
   public ResponseEntity<Release> createRelease(CreateReleaseRequest createReleaseRequest) {
